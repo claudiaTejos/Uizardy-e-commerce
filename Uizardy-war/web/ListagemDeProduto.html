@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <!-- Compatiblidade com IE-->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- Viewport para tamanho de acordo com o device, escala inicial 1-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+        <title>Uizardy</title>
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        
+        <link rel="stylesheet" href="TelaInicialCSS.css">
+        
+        <link rel="stylesheet" href="ListagemDeProduto.css">
+    </head>
+
+    <body>
+    
+        <div class="header-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-0">
+                        <div class="header-right">
+                            <!--<p class="navbar-text navbar-right"><a href="#" class="navbar-link">Login/Cadastro</a></p>-->
+                            <ul class="list-unstyled list-inline">
+                                <li><a href="#"><i class="fa fa-user"></i> Login</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- Fim da primeira linha Login/Cadastro -->
+        
+    
+        <div class="site-branding-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <div class="logo">
+                            <h1><a href="TelaInicial.html">Uizardy</a></h1>
+                        </div>
+                    </div>
+                    
+                    <div class="col-xs-4">
+                        <div class="search-product input-group"> 
+                            <input type="text" class="form-control" placeholder="Busque por..."> <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">Go!</button></span> 
+                        </div>
+                    </div>
+                        
+                    <div class="col-xs-4">
+                        <div class="shopping-item">
+                            <a href="carrinhoDeCompras.html"><i class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>                        
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div> <!-- Fim da marca do site,busca e carrinho -->
+        
+        <div class="mainmenu-area">
+            <div class="container">
+                <div class="row">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div> 
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="#">Home</a></li>
+                            <li><a href="#">Ingles</a></li>
+                            <li><a href="#">Espanhol</a></li>
+                            <li><a href="#">Francês</a></li>
+                        </ul>
+                    </div>  
+                </div>
+            </div>
+        </div> <!-- Fim do menu principal -->
+
+        
+        <div class="maincontent-area">
+            <div class="container">
+                <div class="row">
+                    <div class="product-carousel">
+                        <div class="col-md-4 col-xs-6">
+                            <div class="single-product">
+                                <div class="product-f-image">
+                                    <img  class="img-responsive" src="img/comoDizerTudoIngles.png">
+                                    <div class="product-hover">
+                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Adicionar ao Carrinho</a>
+                                        <a href="DetalheDeProduto.html" class="view-details-link"><i class="fa fa-link"></i> Mais Detalhes</a>
+                                    </div>
+                                </div>
+                                
+                                <h2><a href="DetalheDeProduto.html">Como Dizer tudo / Como escrever tudo em inglês</a></h2>
+                                
+                                <div class="product-carousel-price">
+                                    <ins>R$ 39,50</ins>
+                                    <!--<del>R$ 14,50</del>-->
+                                </div> 
+                            </div>
+                        </div><!--Col -->
+                        <div class="col-md-4 col-xs-6">
+                            <div class="single-product">
+                                <div class="product-f-image">
+                                    <img  class="img-responsive" src="img/frances.png">
+                                    <div class="product-hover">
+                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Adicionar ao Carrinho</a>
+                                        <a href="DetalheDeProduto.html" class="view-details-link"><i class="fa fa-link"></i> Mais Detalhes</a>
+                                    </div>
+                                </div>
+                                
+                                <h2><a href="DetalheDeProduto.html">Como Dizer tudo / Como escrever tudo em francês</a></h2>
+                                
+                                <div class="product-carousel-price">
+                                    <ins>R$ 30,90</ins> 
+                                    <!--<del>$800.00</del>-->
+                                </div> 
+                            </div>
+                        </div><!--Col -->
+                        <div class="col-md-4 col-xs-6">
+                            <div class="single-product">
+                                <div class="product-f-image">
+                                    <img  class="img-responsive" src="img/learnConversation.png">
+                                    <div class="product-hover">
+                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Adicionar ao Carrinho</a>
+                                        <a href="DetalheDeProduto.html" class="view-details-link"><i class="fa fa-link"></i> Mais Detalhes</a>
+                                    </div>
+                                </div>
+                                
+                                <h2><a href="DetalheDeProduto.html">Easy learning english conversation</a></h2>
+                                
+                                <div class="product-carousel-price">
+                                    <ins>R$ 42,60</ins> 
+                                    <!--<del>$800.00</del>-->
+                                </div> 
+                            </div>
+                        </div><!--Col -->
+                    </div> <!--Fim d product-carousel-->
+                </div> <!--Fim da row-->
+                 <div class="row">
+                    <div class="product-carousel">
+                        <div class="col-md-4 col-xs-6">
+                            <div class="single-product">
+                                <div class="product-f-image">
+                                    <img  class="img-responsive" src="img/learnGerman.png">
+                                    <div class="product-hover">
+                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Adicionar ao Carrinho</a>
+                                        <a href="DetalheDeProduto.html" class="view-details-link"><i class="fa fa-link"></i> Mais Detalhes</a>
+                                    </div>
+                                </div>
+                                
+                                <h2><a href="DetalheDeProduto.html">Learn German</a></h2>
+                                
+                                <div class="product-carousel-price">
+                                    <ins>R$ 48,90</ins> 
+                                    <!--<del>$800.00</del>-->
+                                </div> 
+                            </div>
+                        </div><!--Col -->
+                        <div class="col-md-4 col-xs-6">
+                            <div class="single-product">
+                                <div class="product-f-image">
+                                    <img  class="img-responsive" src="img/learningGreek.png">
+                                    <div class="product-hover">
+                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Adicionar ao Carrinho</a>
+                                        <a href="DetalheDeProduto.html" class="view-details-link"><i class="fa fa-link"></i> Mais Detalhes</a>
+                                    </div>
+                                </div>
+                                
+                                <h2><a href="DetalheDeProduto.html">Easy learning Greek</a></h2>
+                                
+                                <div class="product-carousel-price">
+                                    <ins>R$ 29,90</ins> 
+                                <del>R$ 39,50</del>
+                                </div> 
+                            </div>
+                        </div><!--Col -->
+                        <div class="col-md-4 col-xs-6">
+                            <div class="single-product">
+                                <div class="product-f-image">
+                                    <img  class="img-responsive" src="img/presentingForSucess.png">
+                                    <div class="product-hover">
+                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Adicionar ao Carrinho</a>
+                                        <a href="DetalheDeProduto.html" class="view-details-link"><i class="fa fa-link"></i> Mais Detalhes</a>
+                                    </div>
+                                </div>
+                                
+                                <h2><a href="DetalheDeProduto.html">Presenting for sucess</a></h2>
+                                
+                                <div class="product-carousel-price">
+                                    <ins>R$ 89,90</ins> <!--<del>$800.00</del>-->
+                                </div> 
+                            </div>
+                        </div><!--Col -->
+                    </div> <!--Fim d product-carousel-->
+                </div> <!--Fim da row-->
+            </div><!--Fim do container-->
+        </div><!--Fim do maincontent-area-->
+        
+
+        
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <!-- Bootstrap JS-->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        
+        
+        <script src="JS/jquery.sticky.js"></script>
+    
+        <!-- jQuery easing -->
+        <script src="JS/jquery.easing.1.3.min.js"></script>
+        <!-- Main Script -->
+        <script src="JS/JSPrincipal.js"></script>
+        
+        <!-- jQuery sticky menu 
+        <script src="js/owl.carousel.min.js"></script> -->
+    </body>
+</html>

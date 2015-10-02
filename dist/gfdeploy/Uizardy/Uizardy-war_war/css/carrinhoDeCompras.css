@@ -1,0 +1,147 @@
+/*.woocommerce-info {
+    background: none repeat scroll 0 0 #f4f4f4;
+    font-size: 18px;
+    margin-bottom: 20px;
+    padding: 15px;
+}
+*/
+
+/*********************Tabela do carrinho***********************/
+table.shop_table {
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    margin-bottom: 50px;
+    margin-top: 45px;
+    width: 140%;
+    margin-left:40px;
+    
+}
+/*******************Cabecalho da tabela e corpo **********************/
+table.shop_table th, table.shop_table td {
+    border-left: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    padding: 20px;
+    text-align: center;
+}
+
+/****************Cabecalho da tabela***************/
+table.shop_table th {
+    background: none repeat scroll 0 0 #f4f4f4;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+/********************Link de remover ****************************/
+table.shop_table td.product-remove a {
+  display: inline-block;
+  padding: 0 8px 2px;
+  text-transform: uppercase;
+}
+
+/***********************Quando mouse em cima do link de remover**********************/
+table.shop_table td.product-remove a:hover {color: #fff;background: red;text-decoration: none}
+
+/***********************link da label de nome do produto**********************/
+table.shop_table td.product-name a{color: #222;}
+
+/***********************Quando mouse em cima da label de nome do produto**********************/
+table.shop_table td.product-name a:hover {color: #6897E3;text-decoration: none}
+
+/***********************Tamanho da imagem do produto***************************/
+td.product-thumbnail img {
+    height: auto;
+    width: 70px;
+}
+/******************Fonte do nome do produto**********************/
+td.product-name {
+    font-size: 18px;
+}
+/*********************Formatação na coluna de quantidade**********************/
+td.product-quantity div.quantity {
+    float: none;
+    margin: 0;
+}
+/***************Quando mouse em cima do + ou - ***********************************/
+div.quantity input.plus:hover, div.quantity input.minus:hover {background-color: #222}
+
+/***********Formatação do + e - da tabela *********************************************/
+div.quantity input.plus, div.quantity input.minus {
+    background: none repeat scroll 0 0 #6897E3;
+    border: medium none;
+    color: #fff;
+    height: 25px;
+    line-height: 15px;
+    width: 25px;
+}
+/*************************Formatação em relacao a quantidade*****************************/
+.quantity {
+    float: left;
+    margin-right: 15px;
+}
+/**************************Formatação do input de quantidade***********************/
+.quantity input[type="number"] {
+    border: 1px solid #6897E3;
+    padding: 5px;
+    width: 50px;
+}
+
+/********************************************************************************/
+
+.carrinhoDeComprasDevice{
+    display:none
+        
+}
+
+@media(max-width:767px){
+    .carrinhoDeComprasDevice{
+        display:block;
+    }
+}
+/*@media  (max-width: 767px) {
+/* Force table to not be like tables anymore 
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+    
+        width:70%;
+	}
+
+/* Hide table headers (but not display: none;, for accessibility) 
+	thead tr { 
+		position: absolute;
+		/*top: -9999px;
+		left: -9999px;
+	}
+	tr { border: 1px solid #ccc; }
+	
+	td { 
+		/* Behave  like a "row" 
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 10%; 
+	}
+    td:before { 
+		/* Now like a table header 
+		position: absolute;
+		/* Top/left values mimic padding 
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+	/*
+	Label the data
+	
+	td:nth-of-type(1):before { content: "First Name"; }
+	td:nth-of-type(2):before { content: "Last Name"; }
+	td:nth-of-type(3):before { content: "Job Title"; }
+	td:nth-of-type(4):before { content: "Favorite Color"; }
+	td:nth-of-type(5):before { content: "Wars of Trek?"; }
+	td:nth-of-type(6):before { content: "Porn Name"; }
+	td:nth-of-type(7):before { content: "Date of Birth"; }
+	td:nth-of-type(8):before { content: "Dream Vacation City"; }
+	td:nth-of-type(9):before { content: "GPA"; }
+	td:nth-of-type(10):before { content: "Arbitrary Data"; }
+
+}*/

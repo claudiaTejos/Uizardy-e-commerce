@@ -1,0 +1,128 @@
+/*Relativo aos produtos apresentados*/ 
+.promo-area, .brands-area, .maincontent-area, .footer-top-area, .product-widget-area, .product-breadcroumb-area, .single-product-area {position: relative;overflow: hidden}
+
+/*Posicionamento do inicio da listagem de itens*/
+.maincontent-area {
+    margin-top:50px;
+    padding-bottom: 170px
+}
+
+.latest-product .owl-nav {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.latest-product .owl-nav div, .related-products-wrapper .owl-nav div {
+  border: 1px solid #1abc9c;
+  color: #1abc9c;
+  display: inline-block;
+  margin-left: 15px;
+  padding: 1px 10px;
+}
+.latest-product .owl-nav div:hover, .brand-wrapper .owl-nav div:hover, .related-products-wrapper .owl-nav div:hover {color: #222;border-color: #222}
+
+
+/************Centralização da Label  Produtos*************/
+.section-title {
+  font-family: "Raleway",sans-serif;
+  font-size: 50px;
+  font-weight: 100;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+/***********Preco do produto cor, margin e font**************/
+.product-carousel-price ins {
+  color: #283A57;
+  font-weight: 700;
+  margin-right: 5px;
+  text-decoration: none;
+    
+}
+
+/***************Div referente a imagem do produto*****/
+.product-f-image {
+    position: relative;
+}
+
+/************Div referente aos links de adicionar no carrinho e detalhes********************/
+.product-hover {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 92%;overflow: hidden;border: 1px solid #ddd;
+}
+
+/*******************Adicionar depois de produto-hover****************/
+.product-hover:after {
+  background: none repeat scroll 0 0 #000;
+  content: "";
+  height: 100%;
+  left: -100%;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  width: 100%;transition: .4s;
+}
+
+/***********Links referente ao add carrinho e detalhe ****************/
+.product-hover a {
+    background: none repeat scroll 0 0 #6897E3;
+    border-radius: 5px;
+    color: #fff;
+    display: block;
+    font-size: 16px;
+    left: 10%;
+    margin: 0;
+    padding: 10px;
+    position: absolute;
+    text-align: center;
+    text-transform: uppercase;
+    border: 1px solid #6897E3;
+    width: 80%;z-index: 30;transition: .4s;
+}
+
+/************Quando o mouse em cima do link de carirnho/detalhe**************/
+.product-hover a:hover {
+  background: #000;
+  text-decoration: none;border-color: #444;
+}
+/*****************Margin dos simbolos carirnho e detalhes*******************/
+.product-hover a i.fa {
+    margin-right: 5px;
+}
+/*****************Local do link de add carrinho / detalhe********************/
+.product-hover a.add-to-cart-link {top: -25%;}
+.product-hover a.view-details-link { bottom: -25%;}
+
+/*********************REferente a label de nome do produto************************/
+.single-product h2 {
+    font-size: 18px;
+    line-height: 25px;
+    margin-bottom: 10px;
+    margin-top: 15px;
+}
+
+/****Adicionar ao carrinho e detalhe nao disponivel em dispositivos menores*********/
+@media (max-width: 768px){
+    a.add-to-cart-link{
+        display:none;
+    }
+    a.view-details-link {
+        display:none;
+    }
+    .product-hover {
+        width: 100%;
+    }
+
+
+
+}
+/*****************Aparecimento do link de detalhe e carrinho************************/
+.single-product:hover {}
+.single-product:hover .product-hover a.add-to-cart-link {top: 32%;}
+.single-product:hover .product-hover a.view-details-link {bottom: 32%;}
+/*****************************Fundo escuro******************************************/
+.single-product:hover .product-hover:after{left: 0}

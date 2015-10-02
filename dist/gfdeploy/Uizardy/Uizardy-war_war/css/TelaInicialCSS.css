@@ -1,0 +1,231 @@
+
+/* Inicio da primeira linha Login/Cadastro */
+/*Não ser scroll  */
+.header-area {
+    background: none repeat scroll 0 0 #4B6DA3;
+    height:25px;
+}
+
+/*Link superior */
+.header-area a {
+    color: #FFFFFF;
+}
+/*Ajustar login a direita na pagina */
+.header-right ul.list-inline {
+    margin: 0;
+    text-align: right;
+}
+
+/*Label drop down*/
+.header-right ul.list-inline li a {
+    display: block;
+    padding: 9px;
+    margin-top: -5px;
+}
+/*link dentro lista do dropdown*/
+.header-right ul.list-inline li ul a {
+    padding: 5px 15px;
+}
+/* Lista de Drop down*/
+.header-right ul.list-inline li ul {
+    border: medium none;
+    border-radius: 0;
+    left: 50%;
+    margin-left: -50px;
+    min-width: 100px;
+    text-align: center;
+}
+
+/* Fim da primeira linha */
+
+
+
+/* Inicio da segunda linha marca, busca e carrinho */
+
+/*Marca*/
+/*Fundo do cabelalho marca*/
+.site-branding-area{
+    background: #283A57;
+    z-index: 999;
+    width:100%;
+}
+/* Logo h1 */
+.logo h1 {
+    font-size: 40px;
+    margin: 10px 0;
+    font-weight: 400;
+}
+/*Link no logo */
+.logo h1 a {
+    color: #FFFFFF;
+}
+/*Opacidade quando mouse em cima */
+.logo h1 a:hover {text-decoration: none;opacity: .7}
+
+/*dentro do span não necessario*/
+.logo h1 a span {
+    color: #1abc9c;
+}
+
+/*Carrinho */
+/*posicionamento do carrinho*/
+.shopping-item {
+    border: 1px solid #4B6DA3;
+    float: right;
+    font-size: 18px;
+    margin-top: 10px;
+    padding: 10px;
+    position: relative;
+}
+/*link de imagem do carrinho e quantidade*/
+.shopping-item a {
+    color: #FFFFFF;  
+}
+/* tamanho da imagem de carrinho */
+.shopping-item i.fa {
+    margin-left: 15px;
+}
+
+/*quando o mouse está em cima do carrinho*/
+.shopping-item:hover {
+    background: none repeat scroll 0 0 #6897E3;
+    border-color: #6897E3;
+}
+/*cor do carrinho com mouse em cima*/
+.shopping-item:hover a {
+    color: #fff;
+    text-decoration: none;
+}
+/**********************************************/
+.product-count {
+    background: none repeat scroll 0 0 #6897E3;
+    border-radius: 50%;
+    color: #fff;
+    display: inline-block;
+    font-size: 10px;
+    height: 20px;
+    padding-top: 2px;
+    position: absolute;
+    right: -10px;
+    text-align: center;
+    top: -10px;
+    width: 20px;
+}
+
+
+
+
+/*cor da quantidade de produtos com mouse em cima*/
+.shopping-item:hover .product-count {
+    background: none repeat scroll 0 0 #000;
+}
+
+/*Barra de pesquisa */
+.search-product{
+    float: center;
+    font-size: 18px;
+    margin-top: 15px;
+    position: relative;
+}
+/* Fim da segunda linha */
+
+
+/* Inicio da terceira linha - produtos/categorias */
+
+/* barra de categorias */
+.mainmenu-area {
+    background: none repeat scroll 0 0 #B0B0B0;
+    /*font-family: "Roboto Condensed",sans-serif;*/
+    text-transform: uppercase;
+    width: 100%;
+    z-index: 999;
+}
+
+/* Cor, fonte da barra de categoria */
+.mainmenu-area ul.navbar-nav li a {
+    color: #000000;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 10px;
+}
+
+/*Opção do menu selecionada
+.mainmenu-area ul.navbar-nav li:hover a, .mainmenu-area ul.navbar-nav li.active a {
+    background: #4B6DA3;
+}*/
+/*Mouse em pelo link de categoria*/
+.mainmenu-area .nav > li > a:focus {
+    color: #000;
+}
+/*Fim da terceira linha*/
+
+
+/* Inicio da quarta linha*/
+/*.slide-text {
+    display: table-cell;
+    color: black;
+    vertical-align: middle
+}*/
+
+.carousel .item{
+    height: 270px;
+    background-color: #777;
+}
+
+/* Sumir barra de busca nos dispositivos pequenos (devices)*/
+@media (max-width: 767px){
+    .search-product {
+    display:none
+    }
+
+}
+
+
+/***************************************************************/
+/*teste  */
+/*.carousel-inner > .item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 270px;
+}*/
+
+.slide-bulletz {
+    top:inherit;
+    bottom: 0px;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    z-index: 99;
+}
+
+ol.slide-indicators {
+left: inherit;
+list-style: outside none none;
+margin: 0;
+padding: 0;
+position: relative;
+width: 100%;
+}
+ol.slide-indicators li {
+background: none repeat scroll 0 0 #222;
+border: medium none;
+border-radius: 0;
+cursor: pointer;
+display: inline-block;
+height: 10px;
+margin: 0 0 0 5px;
+width: 10px;
+}
+ol.slide-indicators li.active {
+background: none repeat scroll 0 0 #fff;
+height: 10px;
+margin: 0 0 0 5px;
+width: 10px;
+}
+
+
+
+

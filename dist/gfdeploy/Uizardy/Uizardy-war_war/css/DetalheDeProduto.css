@@ -1,0 +1,17 @@
+.tituloLivro{
+    text-align:center;
+    
+}
+.ResumoLivro{
+    margin-top: 100px;
+}
+hr.linha{
+    border-top: 1px solid #B0B0B0;
+}
+.informacoesLivro h3{
+    font-weight:bold;
+}
+.informacoesLivro h3 span{
+    font-family: chicle;
+    font-weight:normal;
+}
