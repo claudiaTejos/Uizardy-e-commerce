@@ -2,26 +2,37 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
-        <title>Teste</title>
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <title>Uizardy BackOffice</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet" />
     </h:head>
     <h:body>
-        <h:form>
-            <h:panelGrid>
-                <h:outputLabel value="Razao Social" />
-                <h:inputText value="#{fornecedorBean.fornecedor.razaoSocial}" />
-                <h:outputLabel value="CNPJ" />
-                <h:inputText value="#{fornecedorBean.fornecedor.cnpj}" />
-                <h:outputLabel value="Endereço" />
-                <h:inputText value="#{fornecedorBean.fornecedor.endereco}" />
-                <p:commandButton action="#{fornecedorBean.cadastrar()}" ajax="false"
-                                value="Cadastrar" />
-            </h:panelGrid>
-        </h:form>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/jquery-2.1.4.js"></script>
+        <ui:insert name="header" >
+            <ui:include src="header.xhtml" />
+        </ui:insert>
+        
+        <div class="container">
+            <h:form class="form-group">
+                <h:panelGrid>
+                    <h:outputLabel class="" for="razaoSocial" value="Razão Social" />
+                    <h:inputText class="form-control" required="true" id="razaoSocial" value="#{fornecedorBean.fornecedor.razaoSocial}" />
+                    <h:outputLabel class="" for="cnpj" value="CNPJ" />
+                    <h:inputText class="form-control" required="true" id="cnpj" value="#{fornecedorBean.fornecedor.cnpj}" />
+                    <h:outputLabel class="" for="endereco" value="Endereço" />
+                    <h:inputText class="form-control" required="true" id="endereco" value="#{fornecedorBean.fornecedor.endereco}" />
+                    <p:commandButton action="#{fornecedorBean.cadastrar()}" ajax="false"
+                                    class="btn btn-primary" value="Cadastrar" />
+                </h:panelGrid>
+            </h:form>
+        </div><!-- fim container -->
+        
+        <ui:insert name="footer" >
+            <ui:include src="footer.xhtml" />
+        </ui:insert>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/jquery-2.1.4.js"></script>
     </h:body>
 </html>
 
