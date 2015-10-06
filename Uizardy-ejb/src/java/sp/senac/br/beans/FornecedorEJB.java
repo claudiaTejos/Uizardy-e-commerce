@@ -6,9 +6,11 @@
 package sp.senac.br.beans;
 
 import java.util.ArrayList;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import sp.senac.br.uizardy.commons.Fornecedor;
 
 /**
@@ -32,15 +34,9 @@ public class FornecedorEJB implements FornecedorEJBLocal {
     }
 
     @Override
-    public ArrayList<Fornecedor> pesquisar() {
-        ArrayList<Fornecedor> fornecedor = new ArrayList();
+    public List<Fornecedor> pesquisar() {
+        Query query = em.createQuery("Select Fornecedor from Fornecedor fornecedor");
+        List<Fornecedor> fornecedor = (List<Fornecedor>)query.getResultList();
         return fornecedor;
-    }
-
-    @Override
-    public Fornecedor pesquisar(int id) {
-        Fornecedor fornecedor = em.find(Fornecedor.class, id);
-        return fornecedor;
-    }
-    
+    }    
 }

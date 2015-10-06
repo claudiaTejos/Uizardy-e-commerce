@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    
+    <h:body>
+        <ui:composition> 
+            <!-- Navegação -->
+            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <div class="container">
+                    <!-- Marca e agrupação para mobile -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="back-office.html">Uizardy</a>
+                    </div>
+                    <!-- Menu do usuário -->
+                    <ul class="nav navbar-right top-nav">
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Joseph Smosoko <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#"><i class="fa fa-fw fa-user"></i> Perfil</a>
+                                </li>
+                                <!--<li>
+                                    <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                                </li>-->
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="#"><i class="fa fa-fw fa-power-off"></i> Sair</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+                    <div class="collapse navbar-collapse navbar-ex1-collapse side-nav">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a href="back-office.html"><i class="fa fa-fw fa-dashboard"></i> Pagina inicial</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-fw  fa-users"></i> Gerenciamento de Funcionário</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-fw fa-book"></i> Gerenciamento de Produto/Estoque</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-fw fa-building-o"></i> Gerenciamento de Fornecedor</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-fw fa-bar-chart-o"></i> Gráficos</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-fw fa-table"></i> Relatórios</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav><!-- /.navbar-collapse -->
+        </ui:composition>
+    </h:body>
+</html>
+

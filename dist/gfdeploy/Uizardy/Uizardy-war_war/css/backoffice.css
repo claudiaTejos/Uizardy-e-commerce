@@ -1,0 +1,19 @@
+body {
+    
+}
+
+.centroBackOffice{
+    
+}
+/* --------------------------------------
+   Layout
+   -------------------------------------- */
+footer {
+    background: #283A57;
+    color: #eee;
+    font-size: 11px;
+    padding: 20px;
+}
+body{
+    padding-top: 100px;
+}

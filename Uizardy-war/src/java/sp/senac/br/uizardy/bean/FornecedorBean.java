@@ -5,6 +5,7 @@
  */
 package sp.senac.br.uizardy.bean;
 
+import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -34,6 +35,14 @@ public class FornecedorBean {
     
     public void cadastrar(){
         fornecedorEJB.cadastrar(fornecedor);
+    }
+    
+    public List<Fornecedor> pesquisar(){
+        return fornecedorEJB.pesquisar();
+    }
+    
+    public void atualizar(){
+        fornecedorEJB.alterar(fornecedor);
     }
     
     /**

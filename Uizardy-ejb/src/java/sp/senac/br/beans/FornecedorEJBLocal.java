@@ -5,7 +5,7 @@
  */
 package sp.senac.br.beans;
 
-import java.util.ArrayList;
+import java.util.List;
 import javax.ejb.Local;
 import sp.senac.br.uizardy.commons.Fornecedor;
 
@@ -17,6 +17,5 @@ import sp.senac.br.uizardy.commons.Fornecedor;
 public interface FornecedorEJBLocal {
     public void cadastrar(Fornecedor fornecedor);
     public void alterar(Fornecedor fornecedor);
-    public ArrayList<Fornecedor> pesquisar();
-    public Fornecedor pesquisar(int id);
+    public List<Fornecedor> pesquisar();
 }
