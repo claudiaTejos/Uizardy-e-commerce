@@ -110,8 +110,8 @@ div#lateral.collapse.navbar-collapse.navbar-ex1-collapse{
         padding-bottom:33px;
     }
 
-    .side-nav>li>a {
-        width: 225px;
+    .side-nav>ul>li>a {
+        width: 200px;
         font-size: 18px;
     }
 
