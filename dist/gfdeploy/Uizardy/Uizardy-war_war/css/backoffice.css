@@ -2,9 +2,21 @@ body {
     
 }
 
-.centroBackOffice{
-    
+@media (min-width: 767px){
+    .centroBackOffice{
+        margin-left: 205px;
+    }
+
 }
+/*@media(min-width: 1200px){
+    .centroBackOffice{
+        margin-left: 205px; 
+    }
+    /*.container{
+        width: 1126px;
+    } 
+}*/
+
 /* --------------------------------------
    Layout
    -------------------------------------- */
@@ -17,3 +29,119 @@ footer {
 body{
     padding-top: 100px;
 }
+
+/*Cor do menu*/
+div.collapse.navbar-collapse.navbar-ex1-collapse{
+    background-color:#283A57;
+}
+div#lateral.collapse.navbar-collapse.navbar-ex1-collapse{
+    background-color: #101010;
+}
+/*Cabecalho uizardy*/
+.navbar-inverse{
+    background-color:#283A57;
+}
+/*Seleção de uizardy*/
+.navbar-inverse .navbar-brand{
+    color:#fff;
+    font-size: 25px;
+}
+
+/* Navegação do usuário */
+.top-nav {
+    padding: 0 15px;
+}
+/*O que for lista dentro de navegação do usuario*/
+.top-nav>li {
+    display: inline-block;
+    float: left;
+}
+/*Espaçamento referente aos links de navegação do usuario*/
+.top-nav>li>a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    line-height: 20px;
+    color: #BFBFBF;
+}
+/*Quando estiver com o mouse em cima, foco, clicar no link de navegação do usuario*/
+.top-nav>li>a:hover,
+.top-nav>li>a:focus,
+.top-nav>.open>a,
+.top-nav>.open>a:hover,
+.top-nav>.open>a:focus {
+    color: #fff;
+    background-color: #202E45;
+}
+
+/*Dropdown de opções do usuario*/
+.top-nav>.open>.dropdown-menu {
+    float: left;
+    position: absolute;
+    margin-top: 0;
+    border: 1px solid rgba(0,0,0,.15);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    background-color: #fff;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+.top-nav>.open>.dropdown-menu>li>a {
+    white-space: normal;
+}
+
+
+
+.navbar-fixed-bottom .navbar-collapse, .navbar-fixed-top .navbar-collapse{
+    max-height: none;
+}
+
+/* Navegação lateral */
+
+/*Posicionamento do menu lateral*/
+@media(min-width:768px) {
+    .side-nav {
+        position: fixed;
+        top: 50px;
+        left: 0px;
+        width: 200px;
+        margin-left: -225px;
+        border: none;
+        border-radius: 0;
+        overflow-y: auto;
+        background-color: #222;
+        bottom: 0;
+        overflow-x: hidden;
+        padding-bottom: 40px;
+    }
+    /* subescreve os valores do proprio bootstrap espaço*/
+    .navbar-nav>li>a{
+        padding-top: 33px;
+        padding-bottom:33px;
+    }
+
+    .side-nav>li>a {
+        width: 225px;
+        font-size: 18px;
+    }
+
+    .side-nav li a:hover,
+    .side-nav li a:focus {
+        outline: none;
+        background-color: #000 !important;
+    }
+}
+.side-nav>li>ul {
+    padding: 0;
+}
+
+.side-nav>li>ul>li>a {
+    display: block;
+    padding: 10px 15px 10px 38px;
+    text-decoration: none;
+    color: #999;
+}
+
+.side-nav>li>ul>li>a:hover {
+    color: #fff;
+}
+
