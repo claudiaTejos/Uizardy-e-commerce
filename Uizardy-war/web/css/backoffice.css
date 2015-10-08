@@ -2,20 +2,14 @@ body {
     
 }
 
-@media (min-width: 767px){
-    .centroBackOffice{
-        margin-left: 205px;
-    }
-
-}
-/*@media(min-width: 1200px){
+@media(min-width: 767px){
     .centroBackOffice{
         margin-left: 205px; 
     }
-    /*.container{
+    .container{
         width: 1126px;
-    } 
-}*/
+    }
+}
 
 /* --------------------------------------
    Layout
