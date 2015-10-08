@@ -18,4 +18,5 @@ public interface FornecedorEJBLocal {
     public void cadastrar(Fornecedor fornecedor);
     public void alterar(Fornecedor fornecedor);
     public List<Fornecedor> pesquisar();
+    public Fornecedor pesquisar (int id);
 }

@@ -35,10 +35,15 @@ public class FornecedorBean {
     
     public void cadastrar(){
         fornecedorEJB.cadastrar(fornecedor);
+        fornecedor = null;
     }
     
     public List<Fornecedor> pesquisar(){
         return fornecedorEJB.pesquisar();
+    }
+    
+    public Fornecedor pesquisar (int id){
+        return fornecedorEJB.pesquisar(id);
     }
     
     public void atualizar(){

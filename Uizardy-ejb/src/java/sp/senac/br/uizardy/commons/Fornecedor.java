@@ -25,6 +25,10 @@ public class Fornecedor implements Serializable {
     private String razaoSocial;
     private String endereco;
 
+    public void setIdFornecedor(int idFornecedor) {
+        this.idFornecedor = idFornecedor;
+    }
+
     public int getIdFornecedor() {
         return idFornecedor;
     }

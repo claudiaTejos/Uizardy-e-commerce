@@ -5,7 +5,6 @@
  */
 package sp.senac.br.beans;
 
-import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -30,7 +29,12 @@ public class FornecedorEJB implements FornecedorEJBLocal {
 
     @Override
     public void alterar(Fornecedor fornecedor) {
-        em.refresh(fornecedor);
+        Fornecedor temp = em.find(Fornecedor.class, fornecedor.getIdFornecedor());
+        if (temp!=null) {
+            temp.setRazaoSocial(fornecedor.getRazaoSocial());
+            temp.setCnpj(fornecedor.getCnpj());
+            temp.setEndereco(fornecedor.getEndereco());
+        }
     }
 
     @Override
@@ -39,4 +43,9 @@ public class FornecedorEJB implements FornecedorEJBLocal {
         List<Fornecedor> fornecedor = (List<Fornecedor>)query.getResultList();
         return fornecedor;
     }    
+
+    @Override
+    public Fornecedor pesquisar(int id) {
+        return em.find(Fornecedor.class, id);
+    }
 }
