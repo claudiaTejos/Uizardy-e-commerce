@@ -30,7 +30,7 @@
         
         <div class="container centroBackOffice">
             <div id="dialogFornecedor">
-                <p:dialog id="novoFornecedorDialog" widgetVar="novoFornecedorDialog" header="Novo Fornecedor">
+                <p:dialog id="novoFornecedorDialog" widgetVar="novoFornecedorDialog" header="Novo Fornecedor" resizable="false" draggable="false" modal="true"  position="center" width="800">
                     <h:form class="form-horizontal">
                         <div class="form-group form-horizontal">
                             <h:outputLabel class="col-lg-3 control-label" for="razaoSocial" value="Razão Social" />
@@ -80,7 +80,10 @@
                     <h:column>
                         <f:facet name="header">Atualizar</f:facet>
                         <h:form>
-                            <p:commandButton value="Alterar" styleClass="btn btn-default" action="#{fornecedorBean.setFornecedor(dataFornecedor)}" update=":detail" oncomplete="PF('detail').show()" />
+                            <p:commandButton value="" styleClass="btn btn-default fa fa-refresh"  action="#{fornecedorBean.setFornecedor(dataFornecedor)}" update=":detail" oncomplete="PF('detail').show()">
+                            </p:commandButton>
+
+                           
                         </h:form>
                     </h:column>
                 </h:dataTable>
@@ -88,7 +91,7 @@
         </div><!-- fim container -->
         
         <div id="dialogAlteraFornecedor">
-            <p:dialog id="detail" widgetVar="detail" header="Fornecedor # #{fornecedorBean.fornecedor.idFornecedor}">
+            <p:dialog id="detail" widgetVar="detail"  styleClass="dialogAlterarFornecedor" resizable="false" draggable="false" modal="true"  position="center" width="800" header="Fornecedor # #{fornecedorBean.fornecedor.idFornecedor}">
                 <h:form class="form-horizontal">
                     <div class="form-group form-horizontal">
                         <h:inputHidden value="#{fornecedorBean.fornecedor.idFornecedor}"></h:inputHidden>
@@ -123,5 +126,6 @@
         <script src="../js/scriptBackOffice.js"></script>
         <script src="../js/jquery.dataTables.min.js"></script>
         <script src="../js/dataTables.bootstrap.min.js"></script>
+
     </h:body>
 </html>
