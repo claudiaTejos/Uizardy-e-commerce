@@ -27,6 +27,7 @@ public class Funcionario implements Serializable {
     private String cargoFuncionario;
     private String enderecoFuncionario;
     private String telefoneFuncionario;
+    private String senhaFuncionario;
     private boolean statusFuncionario;
 
     public int getIdFuncionario() {
@@ -92,5 +93,15 @@ public class Funcionario implements Serializable {
     public void setStatusFuncionario(boolean statusFuncionario) {
         this.statusFuncionario = statusFuncionario;
     }
+
+    public String getSenhaFuncionario() {
+        return senhaFuncionario;
+    }
+
+    public void setSenhaFuncionario(String senhaFuncionario) {
+        this.senhaFuncionario = senhaFuncionario;
+    }
+    
+    
   
 }

@@ -43,6 +43,7 @@ public class FuncionarioEJB implements FuncionarioEJBLocal {
             temp.setEnderecoFuncionario(funcionario.getEnderecoFuncionario());
             temp.setTelefoneFuncionario(funcionario.getTelefoneFuncionario());
             temp.setStatusFuncionario(funcionario.isStatusFuncionario());
+            temp.setSenhaFuncionario(funcionario.getSenhaFuncionario());
         }
     
     }

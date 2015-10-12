@@ -65,10 +65,14 @@
                             <div class="col-lg-9">
                                 <h:inputText class="form-control" required="true" id="telefone" value="#{funcionarioBean.funcionario.telefoneFuncionario}" />
                             </div>
+                            <h:outputLabel class="col-lg-3 control-label" for="senha" value="Senha" />
+                            <div class="col-lg-9">
+                                <h:inputSecret class="form-control" required="true" id="senha" value="#{funcionarioBean.funcionario.senhaFuncionario}" />
+                            </div>
                             <h:outputLabel class="col-lg-3 control-label" for="status" value="Status" />
                             <div class="col-lg-9">
                                 <h:panelGrid columns="2" style="margin-bottom:20px" cellpadding="5">
-                                    <p:selectOneRadio id="console" value="#{funcionarioBean.funcionario.statusFuncionario}" >
+                                    <p:selectOneRadio id="console" value="#{funcionarioBean.funcionario.statusFuncionario}" required="true">
                                         <f:selectItem itemLabel="Ativo" itemValue="Ativo" />
                                         <f:selectItem itemLabel="Inativo" itemValue="Inativo" />
                                     </p:selectOneRadio>
@@ -149,6 +153,10 @@
                             <h:outputLabel class="col-lg-3 control-label" for="telefone" value="Telefone" />
                             <div class="col-lg-9">
                                 <h:inputText class="form-control" required="true" id="telefone" value="#{funcionarioBean.funcionario.telefoneFuncionario}" />
+                            </div>
+                            <h:outputLabel class="col-lg-3 control-label" for="senha" value="Senha" />
+                            <div class="col-lg-9">
+                                <h:inputSecret class="form-control" required="true" id="senha" value="#{funcionarioBean.funcionario.senhaFuncionario}" />
                             </div>
                             <h:outputLabel class="col-lg-3 control-label" for="status" value="Status" />
                             <div class="col-lg-9">
