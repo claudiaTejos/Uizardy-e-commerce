@@ -28,45 +28,37 @@
             <ui:include src="header.xhtml" />
         </ui:insert>
         
-        <div class="container-fluid centroBackOffice">
-            <div class="modal fade" id="modalFornecedor">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Fornecedor</h4>
-                        </div><!-- fim modalHeader -->
-                        <div class="modal-body">
-                            <h:form class="form-horizontal">
-                                <div class="form-group form-horizontal">
-                                    <h:outputLabel class="col-lg-3 control-label" for="razaoSocial" value="Razão Social" />
-                                    <div class="col-lg-9">
-                                        <h:inputText class="form-control" required="true" id="razaoSocial" value="#{fornecedorBean.fornecedor.razaoSocial}" />
-                                    </div>
-                                    
-                                    <h:outputLabel class="col-lg-3 control-label" for="cnpj" value="CNPJ" />
-                                    <div class="col-lg-9">
-                                        <h:inputText class="form-control" required="true" id="cnpj" value="#{fornecedorBean.fornecedor.cnpj}" />
-                                    </div>
-                                    
-                                    <h:outputLabel class="col-lg-3 control-label" for="endereco" value="Endereço" />
-                                    <div class="col-lg-9">
-                                        <h:inputText class="form-control" required="true" id="endereco" value="#{fornecedorBean.fornecedor.endereco}" />
-                                    </div>
-                                    
-                                    <div class="pull-right col-lg-offset-1 col-lg-8">
-                                        <p:commandButton action="#{fornecedorBean.cadastrar()}" ajax="false" class="btn btn-primary" value="Salvar" />
-                                        <button class="btn btn-default" data-dismiss="modal" type="button">Fechar</button>
-                                    </div>
-                                </div>
-                            </h:form>
-                        </div><!-- fim modalBody -->
-                    </div><!-- fim modalContent -->
-                </div><!-- fim modalDialog -->
-            </div><!-- fim novoFornecedor -->
+        <div class="container centroBackOffice">
+            <div id="dialogFornecedor">
+                <p:dialog id="novoFornecedorDialog" widgetVar="novoFornecedorDialog" header="Novo Fornecedor" resizable="false" draggable="false" modal="true"  position="center" width="800">
+                    <h:form class="form-horizontal">
+                        <div class="form-group form-horizontal">
+                            <h:outputLabel class="col-lg-3 control-label" for="razaoSocial" value="Razão Social" />
+                            <div class="col-lg-9">
+                                <h:inputText class="form-control" required="true" id="razaoSocial" value="#{fornecedorBean.fornecedor.razaoSocial}" />
+                            </div>
+
+                            <h:outputLabel class="col-lg-3 control-label" for="cnpj" value="CNPJ" />
+                            <div class="col-lg-9">
+                                <h:inputText class="form-control" required="true" id="cnpj" value="#{fornecedorBean.fornecedor.cnpj}" />
+                            </div>
+
+                            <h:outputLabel class="col-lg-3 control-label" for="endereco" value="Endereço" />
+                            <div class="col-lg-9">
+                                <h:inputText class="form-control" required="true" id="endereco" value="#{fornecedorBean.fornecedor.endereco}" />
+                            </div>
+
+                            <div class="pull-right col-lg-offset-1 col-lg-8">
+                                <p:commandButton value="Salvar" action="#{fornecedorBean.cadastrar()}" oncomplete="window.location.reload()" />
+                                <p:button value="Fechar" onclick="PF('novoFornecedorDialog').hide(); return false" />
+                            </div>
+                        </div><!-- fim formGroup -->
+                    </h:form>
+                </p:dialog>
+            </div><!-- fim dialogNovoFornecedor -->
             
-            <div>
-                <a href="#modalFornecedor" role="button" class="btn btn-default" data-toggle="modal" id="abreModal"><span class="glyphicon glyphicon-plus"></span> Novo</a>
+            <div id="tabela">
+                <a class="btn btn-default" onclick="PF('novoFornecedorDialog').show()"><span class="glyphicon glyphicon-plus"></span> Novo</a>
                 
                 <h:dataTable id="fornecedorTable" class="table table-striped table-bordered" cellspacing="0" width="100%" value="#{fornecedorBean.pesquisar()}" var="dataFornecedor">
                     <h:column>
@@ -86,59 +78,53 @@
                         <h:outputText value="#{dataFornecedor.endereco}" />
                     </h:column>
                     <h:column>
+                        <f:facet name="header">Atualizar</f:facet>
                         <h:form>
-                            <f:facet name="header">Atualizar</f:facet>
-                            <h:commandLink role="button" class="btn btn-default" id="abreModal" action="#{fornecedorBean.setFornecedor(dataFornecedor)}">Up</h:commandLink>
+                            <p:commandButton value="" styleClass="btn btn-default fa fa-refresh"  action="#{fornecedorBean.setFornecedor(dataFornecedor)}" update=":detail" oncomplete="PF('detail').show()">
+                            </p:commandButton>
+
+                           
                         </h:form>
                     </h:column>
                 </h:dataTable>
             </div><!-- fim divTabela -->
         </div><!-- fim container -->
         
-        <a href="#modalFor" role="button" class="btn btn-default" data-toggle="modal" id="abreModal"><span class="glyphicon glyphicon-plus"></span> Novo</a>
-        <div class="modal fade" id="modalFor">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Fornecedor # #{fornecedorBean.fornecedor.idFornecedor}</h4>
-                        </div><!-- fim modalHeader -->
-                        <div class="modal-body">
-                            <h:form class="form-horizontal">
-                                <div class="form-group form-horizontal">
-                                    <h:outputLabel class="col-lg-3 control-label" for="razaoSocial" value="Razão Social" />
-                                    <div class="col-lg-9">
-                                        <h:inputText class="form-control" required="true" id="razaoSocial" value="#{fornecedorBean.fornecedor.razaoSocial}" />
-                                    </div>
-                                    
-                                    <h:outputLabel class="col-lg-3 control-label" for="cnpj" value="CNPJ" />
-                                    <div class="col-lg-9">
-                                        <h:inputText class="form-control" required="true" id="cnpj" value="#{fornecedorBean.fornecedor.cnpj}" />
-                                    </div>
-                                    
-                                    <h:outputLabel class="col-lg-3 control-label" for="endereco" value="Endereço" />
-                                    <div class="col-lg-9">
-                                        <h:inputText class="form-control" required="true" id="endereco" value="#{fornecedorBean.fornecedor.endereco}" />
-                                    </div>
-                                    
-                                    <div class="pull-right col-lg-offset-1 col-lg-8">
-                                        <p:commandButton action="#{fornecedorBean.atualizar()}" ajax="false" class="btn btn-primary" value="Salvar" />
-                                        <button class="btn btn-default" data-dismiss="modal" type="button">Fechar</button>
-                                    </div>
-                                </div>
-                            </h:form>
-                        </div><!-- fim modalBody -->
-                    </div><!-- fim modalContent -->
-                </div><!-- fim modalDialog -->
-            </div><!-- fim novoFornecedor -->
+        <div id="dialogAlteraFornecedor">
+            <p:dialog id="detail" widgetVar="detail"  styleClass="dialogAlterarFornecedor" resizable="false" draggable="false" modal="true"  position="center" width="800" header="Fornecedor # #{fornecedorBean.fornecedor.idFornecedor}">
+                <h:form class="form-horizontal">
+                    <div class="form-group form-horizontal">
+                        <h:inputHidden value="#{fornecedorBean.fornecedor.idFornecedor}"></h:inputHidden>
+                        <h:outputLabel class="col-lg-3 control-label" for="razaoSocial" value="Razão Social" />
+                        <div class="col-lg-9">
+                            <h:inputText class="form-control" required="true" id="razaoSocial" value="#{fornecedorBean.fornecedor.razaoSocial}" />
+                        </div>
+
+                        <h:outputLabel class="col-lg-3 control-label" for="cnpj" value="CNPJ" />
+                        <div class="col-lg-9">
+                            <h:inputText class="form-control" required="true" id="cnpj" value="#{fornecedorBean.fornecedor.cnpj}" />
+                        </div>
+
+                        <h:outputLabel class="col-lg-3 control-label" for="endereco" value="Endereço" />
+                        <div class="col-lg-9">
+                            <h:inputText class="form-control" required="true" id="endereco" value="#{fornecedorBean.fornecedor.endereco}" />
+                        </div>
+
+                        <div class="pull-right col-lg-offset-1 col-lg-8">
+                            <p:commandButton value="Salvar" action="#{fornecedorBean.atualizar()}" oncomplete="window.location.reload()" />
+                            <p:button value="Fechar" onclick="PF('detail').hide(); return false" />
+                        </div>
+                    </div>
+                </h:form>
+            </p:dialog>
+        </div><!--fim do divDialog -->
+            
         <ui:insert name="footer" >
             <ui:include src="footer.xhtml" />
         </ui:insert>
         <script src="../js/bootstrap.min.js"></script>
-        <script src="../js/jquery-2.1.4.js"></script>
         <script src="../js/scriptBackOffice.js"></script>
         <script src="../js/jquery.dataTables.min.js"></script>
         <script src="../js/dataTables.bootstrap.min.js"></script>
     </h:body>
 </html>
-

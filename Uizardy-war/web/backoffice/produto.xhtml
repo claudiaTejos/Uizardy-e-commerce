@@ -1,0 +1,167 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Uizardy BackOffice</title>
+        
+        <!-- Mobile viewport optimized -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        
+        <!-- Bootstrap CSS -->
+        <link href="../css/bootstrap.min.css" rel="stylesheet" />
+        
+        <!-- Custom Fonts -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
+        
+        <!-- DataTables CSS -->
+        <link href="../css/dataTables.bootstrap.min.css" rel="stylesheet" />
+        
+        <!-- BackOffice CSS -->
+        <link href="../css/backoffice.css" rel="stylesheet" />
+    </h:head>
+    <h:body>
+        <ui:insert name="header" >
+            <ui:include src="header.xhtml" />
+        </ui:insert>
+        
+        <div class="container centroBackOffice">
+            <div id="dialogProduto">
+                <p:dialog id="novoProdutoDialogDialog" widgetVar="novoProdutoDialog" header="Novo Produto" resizable="false" draggable="false" modal="true"  position="center" width="800">
+                    <h:form class="form-horizontal">
+                        <div class="form-group form-horizontal">
+                            <div class="row">
+                            <h:outputLabel class="col-lg-3 control-label" for="nomeProduto" value="Nome Produto" />
+                            <div class="col-lg-9">
+                                <h:inputText class="form-control" required="true" id="nomeProduto" value="#{produtoBean.produto.nomeProduto}" />
+                            </div>
+                            </div>
+                            
+                            <div class="row">
+                            <h:outputLabel class="col-lg-3 control-label" for="fornecedor" value="Fornecedor" />
+                            <div class="col-lg-9">
+                                <h:selectOneMenu id="fornecedor" value="#{produtoBean.produto.fornecedor}" converter="#{fornecedorConverter}">
+                                    <f:selectItems value="#{fornecedorBean.pesquisar()}" var="fornecedor" itemLabel="#{fornecedor.razaoSocial}" />
+                                </h:selectOneMenu>
+                            </div>
+                            </div>
+                            
+                            <div class="row">
+                            <h:outputLabel class="col-lg-3 control-label" for="autor" value="Autor(es)" />
+                            <div class="col-lg-9">
+                                <p:selectManyMenu id="autor" value="#{produtoBean.produto.autores}" converter="#{autoConverter}" filter="true" showCheckbox="true" filterMatchMode="contains"
+                                                  required="true" scrollHeight="80" style="width: 300px" >
+                                    <f:selectItems value="#{autorBean.pesquisar()}" var="autor" itemLabel="#{autor.nomeAutor}" />
+                                </p:selectManyMenu>
+                            </div>
+                            </div>
+                            
+                            <div class="row">
+                            <h:outputLabel class="col-lg-3 control-label" for="idioma" value="Idioma" />
+                            <div class="col-lg-9">
+                                <h:selectOneMenu id="idioma" value="#{produtoBean.produto.idioma}" converter="#{idiomaConverter}">
+                                    <f:selectItems value="#{idiomaBean.pesquisar()}" var="idioma" itemLabel="#{idioma.nomeIdioma}" />
+                                </h:selectOneMenu>
+                            </div>
+                            </div>
+
+                            <h:outputLabel class="col-lg-3 control-label" for="edicao" value="Edição" />
+                            <div class="col-lg-9">
+                                <h:inputText class="form-control" required="true" id="edicao" value="#{produtoBean.produto.edicaoProduto}" />
+                            </div>
+                            
+                            <h:outputLabel class="col-lg-3 control-label" for="imagem" value="Imagem" />
+                            <div class="col-lg-9">
+                                <h:inputText class="form-control" required="true" id="imagem" value="#{produtoBean.produto.caminhoImagem}" />
+                            </div>
+                            
+                            <h:outputLabel class="col-lg-3 control-label" for="descricaoProduto" value="Descrição" />
+                            <div class="col-lg-9">
+                                <h:inputTextarea class="form-control" required="true" rows="3" id="descricaoProduto" value="#{produtoBean.produto.descricaoProduto}" />
+                            </div>
+                            
+                            <h:outputLabel class="col-lg-3 control-label" for="valorProduto" value="Valor" />
+                            <div class="col-lg-9">
+                                <h:inputText class="form-control" required="true" id="valorProduto" value="#{produtoBean.produto.valorProduto}" />
+                            </div>
+                            
+                            <h:outputLabel class="col-lg-3 control-label" for="qntProduto" value="Quantidade" />
+                            <div class="col-lg-9">
+                                <h:inputText class="form-control" required="true" id="qntProduto" value="#{produtoBean.produto.qntProduto}" />
+                            </div>
+                            
+                            <h:outputLabel class="col-lg-3 control-label" for="disponivelProduto" value="Disponivel" />
+                            <div class="col-lg-9">
+                                <h:selectBooleanCheckbox class="form-control" required="true" id="disponivelProduto" value="#{produtoBean.produto.disponivel}" />
+                            </div>
+                            <p:messages autoUpdate="true" />
+                            <div class="pull-right col-lg-offset-1 col-lg-8">
+                                <p:commandButton value="Salvar" action="#{produtoBean.cadastrar()}" oncomplete=""/>
+                                <p:button value="Fechar" onclick="PF('novoProdutoDialog').hide(); return false" />
+                            </div>
+                        </div><!-- fim formGroup -->
+                    </h:form>
+                </p:dialog>
+            </div><!-- fim dialogNovoFornecedor -->
+
+            <div id="tabela">
+                <a class="btn btn-default" onclick="PF('novoProdutoDialog').show()"><span class="glyphicon glyphicon-plus"></span> Novo</a>
+                
+                <h:dataTable id="produtoTable" class="table table-striped table-bordered" cellspacing="0" width="100%" value="#{produtoBean.pesquisar()}" var="dataProdutos">
+                    <h:column>
+                        <f:facet name="header">ID</f:facet>
+                        <h:outputText value="#{dataProdutos.idProduto}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Nome</f:facet>
+                        <h:outputText value="#{dataProdutos.nomeProduto}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Fornecedor</f:facet>
+                        <h:outputText value="#{dataProdutos.fornecedor.razaoSocial}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Quantidade</f:facet>
+                        <h:outputText value="#{dataProdutos.qntProduto}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Disponivel</f:facet>
+                        <h:outputText value="#{dataProdutos.disponivel}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Atualizar</f:facet>
+                        <h:form>
+                            <p:commandButton value="" styleClass="btn btn-default fa fa-refresh"  action="#{produtoBean.setProduto(dataProdutos)}" update=":detail" oncomplete="PF('detail').show()" />
+                        </h:form>
+                    </h:column>
+                </h:dataTable>
+            </div><!-- fim divTabela -->
+        </div><!-- fim container -->
+
+        <div id="dialogAlteraProduto">
+            <p:dialog id="detail" widgetVar="detail"  styleClass="dialogAlterarFornecedor" resizable="false" draggable="false" modal="true"  position="center" width="800" header="Produto # #{produtoBean.produto.idProduto}">
+                <h:form class="form-horizontal">
+                    <div class="form-group form-horizontal">
+                        
+
+                        <div class="pull-right col-lg-offset-1 col-lg-8">
+                            <p:commandButton value="Salvar" action="#{produtoBean.atualizar()}" oncomplete="window.location.reload()" />
+                            <p:button value="Fechar" onclick="PF('detail').hide(); return false" />
+                        </div>
+                    </div>
+                </h:form>
+            </p:dialog>
+        </div><!--fim do divDialog -->
+            
+        <ui:insert name="footer" >
+            <ui:include src="footer.xhtml" />
+        </ui:insert>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/scriptBackOffice.js"></script>
+        <script src="../js/jquery.dataTables.min.js"></script>
+        <script src="../js/dataTables.bootstrap.min.js"></script>
+    </h:body>
+</html>

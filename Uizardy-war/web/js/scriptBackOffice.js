@@ -5,3 +5,7 @@ $(document).ready(function() {
 $(document).ready(function() {
     $('#funcionarioTable').DataTable();
 } );
+
+$(document).ready(function() {
+    $('#produtoTable').DataTable();
+} );

@@ -10,12 +10,11 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import sp.senac.br.uizardy.commons.Idioma;
 import sp.senac.br.uizardy.commons.Produto;
 
 /**
  *
- * @author blanc
+ * @author blanco
  */
 @Stateless
 public class ProdutoEJB implements ProdutoEJBLocal {
@@ -41,12 +40,13 @@ public class ProdutoEJB implements ProdutoEJBLocal {
             temp.setNomeProduto(produto.getNomeProduto());
             temp.setQntProduto(produto.getQntProduto());
             temp.setValorProduto(produto.getValorProduto());
+            temp.setCaminhoImagem(produto.getCaminhoImagem());
         }
     }
 
     @Override
     public List<Produto> pesquisar() {
-        Query query = em.createQuery("Select Produto from Produto produto");
+        Query query = em.createQuery("Select p from Produto p inner join p.fornecedor f");
         List<Produto> produtos = (List<Produto>)query.getResultList();
         return produtos;
     }
