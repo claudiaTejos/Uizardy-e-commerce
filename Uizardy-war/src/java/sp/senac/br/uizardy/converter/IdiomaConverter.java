@@ -10,7 +10,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
-import sp.senac.br.beans.IdiomaEJB;
+import sp.senac.br.beans.IdiomaEJBLocal;
 import sp.senac.br.uizardy.commons.Idioma;
 
 /**
@@ -18,16 +18,17 @@ import sp.senac.br.uizardy.commons.Idioma;
  * @author blanc
  */
 /*
-@FacesConverter
+@FacesConverter(forClass = Idioma.class)
 public class IdiomaConverter implements Converter{
 
     @EJB
-    IdiomaEJB idiomaEJB;
+    IdiomaEJBLocal idiomaEJB;
     
     @Override
     public Object getAsObject(FacesContext context, UIComponent component, String value) {
+        int id = Integer.parseInt(value);
         try {
-            return idiomaEJB.pesquisar(Integer.parseInt(value));
+            return idiomaEJB.pesquisar(id);
         } catch (Exception e) {
             e.printStackTrace();
             return null;

@@ -10,7 +10,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
-import sp.senac.br.beans.FornecedorEJB;
+import sp.senac.br.beans.FornecedorEJBLocal;
 import sp.senac.br.uizardy.commons.Fornecedor;
 
 /**
@@ -18,11 +18,11 @@ import sp.senac.br.uizardy.commons.Fornecedor;
  * @author blanc
  */
 /*
-@FacesConverter
+@FacesConverter(forClass = Fornecedor.class)
 public class FornecedorConverter implements Converter{
 
     @EJB
-    FornecedorEJB fornecedorEJB;
+    FornecedorEJBLocal fornecedorEJB;
     
     @Override
     public Object getAsObject(FacesContext context, UIComponent component, String value) {
@@ -45,4 +45,5 @@ public class FornecedorConverter implements Converter{
         }
         
     }
+
 }*/

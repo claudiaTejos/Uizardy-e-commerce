@@ -9,7 +9,11 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import sp.senac.br.beans.FornecedorEJBLocal;
+import sp.senac.br.beans.IdiomaEJBLocal;
 import sp.senac.br.beans.ProdutoEJBLocal;
+import sp.senac.br.uizardy.commons.Fornecedor;
+import sp.senac.br.uizardy.commons.Idioma;
 import sp.senac.br.uizardy.commons.Produto;
 
 /**
@@ -24,6 +28,31 @@ public class ProdutoBean {
     
     @EJB
     private ProdutoEJBLocal produtoEJB;
+    
+    @EJB
+    private IdiomaEJBLocal idiomaEJB;
+    
+    @EJB
+    private FornecedorEJBLocal fornecedorEJB;
+    
+    private String idIdioma;
+    private String idFornecedor;
+
+    public String getIdIdioma() {
+        return idIdioma;
+    }
+
+    public void setIdIdioma(String idIdioma) {
+        this.idIdioma = idIdioma;
+    }
+
+    public String getIdFornecedor() {
+        return idFornecedor;
+    }
+
+    public void setIdFornecedor(String idFornecedor) {
+        this.idFornecedor = idFornecedor;
+    }
 
     public ProdutoBean() {
         this.produto = new Produto();
@@ -39,6 +68,10 @@ public class ProdutoBean {
     
     //cadastra um novo produto
     public void cadastrar(){
+        Fornecedor fornecedor = fornecedorEJB.pesquisar(Integer.parseInt(idFornecedor));
+        Idioma idioma = idiomaEJB.pesquisar(Integer.parseInt(idIdioma));
+        this.produto.setFornecedor(fornecedor);
+        this.produto.setIdioma(idioma);
         produtoEJB.cadastrar(this.produto);
     }
     
@@ -54,6 +87,10 @@ public class ProdutoBean {
     
     //atualiza um produto
     public void atualizar(){
+        Fornecedor fornecedor = fornecedorEJB.pesquisar(Integer.parseInt(idFornecedor));
+        Idioma idioma = idiomaEJB.pesquisar(Integer.parseInt(idIdioma));
+        this.produto.setFornecedor(fornecedor);
+        this.produto.setIdioma(idioma);
         produtoEJB.alterar(this.produto);
     }
     

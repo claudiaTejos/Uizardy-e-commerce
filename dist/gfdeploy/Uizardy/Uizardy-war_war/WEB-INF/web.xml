@@ -21,4 +21,10 @@
     <welcome-file-list>
         <welcome-file>index.xhtml</welcome-file>
     </welcome-file-list>
+    <ejb-local-ref>
+        <ejb-ref-name>fornecedorEJB</ejb-ref-name>
+        <ejb-ref-type>Session</ejb-ref-type>
+        <local>sp.senac.br.beans.FornecedorEJBLocal</local>
+        <ejb-link>Uizardy-ejb.jar#FornecedorEJB</ejb-link>
+    </ejb-local-ref>
 </web-app>
