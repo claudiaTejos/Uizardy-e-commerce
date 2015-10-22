@@ -7,7 +7,6 @@ package sp.senac.br.uizardy.commons;
 
 import java.io.Serializable;
 import java.util.Collection;
-import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -19,7 +18,6 @@ import javax.persistence.ManyToMany;
  */
 @Entity
 public class Autor implements Serializable {
-    private static final long serialVersionUID = 1L;
     
     @Id
     @GeneratedValue
@@ -30,36 +28,6 @@ public class Autor implements Serializable {
     @ManyToMany(mappedBy = "autores")
     private Collection<Produto> produtos;
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 23 * hash + this.idAutor;
-        hash = 23 * hash + Objects.hashCode(this.nomeAutor);
-        hash = 23 * hash + Objects.hashCode(this.produtos);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Autor other = (Autor) obj;
-        if (this.idAutor != other.idAutor) {
-            return false;
-        }
-        if (!Objects.equals(this.nomeAutor, other.nomeAutor)) {
-            return false;
-        }
-        if (!Objects.equals(this.produtos, other.produtos)) {
-            return false;
-        }
-        return true;
-    }
-    
     public Collection<Produto> getProdutos() {
         return produtos;
     }

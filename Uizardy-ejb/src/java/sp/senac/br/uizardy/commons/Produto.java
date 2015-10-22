@@ -6,15 +6,14 @@
 package sp.senac.br.uizardy.commons;
 
 import java.io.Serializable;
-import java.util.List;
-import java.util.Objects;
+import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -22,25 +21,23 @@ import javax.persistence.ManyToOne;
  */
 @Entity
 public class Produto implements Serializable {
-    private static final long serialVersionUID = 1L;
-    
     @Id
     @GeneratedValue
     private int idProduto;
     
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name="idFornecedor")
     private Fornecedor fornecedor;
     
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name="idIdioma")
     private Idioma idioma;
     
     @ManyToMany
     @JoinTable(name="Produto_Autor",
-            joinColumns = {@JoinColumn(name="idProduto")},
-            inverseJoinColumns = {@JoinColumn(name="idAutor")})
-    private List<Autor> autores;
+            joinColumns = @JoinColumn(name="idProduto"),
+            inverseJoinColumns = @JoinColumn(name="idAutor"))
+    private Collection<Autor> autores;
     
     private String nomeProduto;
     private String descricaoProduto;
@@ -48,77 +45,6 @@ public class Produto implements Serializable {
     private double valorProduto;
     private int qntProduto;
     private boolean disponivel;
-    private String caminhoImagem;
-
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 23 * hash + this.idProduto;
-        hash = 23 * hash + Objects.hashCode(this.fornecedor);
-        hash = 23 * hash + Objects.hashCode(this.idioma);
-        hash = 23 * hash + Objects.hashCode(this.autores);
-        hash = 23 * hash + Objects.hashCode(this.nomeProduto);
-        hash = 23 * hash + Objects.hashCode(this.descricaoProduto);
-        hash = 23 * hash + Objects.hashCode(this.edicaoProduto);
-        hash = 23 * hash + (int) (Double.doubleToLongBits(this.valorProduto) ^ (Double.doubleToLongBits(this.valorProduto) >>> 32));
-        hash = 23 * hash + this.qntProduto;
-        hash = 23 * hash + (this.disponivel ? 1 : 0);
-        hash = 23 * hash + Objects.hashCode(this.caminhoImagem);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Produto other = (Produto) obj;
-        if (this.idProduto != other.idProduto) {
-            return false;
-        }
-        if (!Objects.equals(this.fornecedor, other.fornecedor)) {
-            return false;
-        }
-        if (!Objects.equals(this.idioma, other.idioma)) {
-            return false;
-        }
-        if (!Objects.equals(this.autores, other.autores)) {
-            return false;
-        }
-        if (!Objects.equals(this.nomeProduto, other.nomeProduto)) {
-            return false;
-        }
-        if (!Objects.equals(this.descricaoProduto, other.descricaoProduto)) {
-            return false;
-        }
-        if (!Objects.equals(this.edicaoProduto, other.edicaoProduto)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.valorProduto) != Double.doubleToLongBits(other.valorProduto)) {
-            return false;
-        }
-        if (this.qntProduto != other.qntProduto) {
-            return false;
-        }
-        if (this.disponivel != other.disponivel) {
-            return false;
-        }
-        if (!Objects.equals(this.caminhoImagem, other.caminhoImagem)) {
-            return false;
-        }
-        return true;
-    }
-    
-    public String getCaminhoImagem() {
-        return caminhoImagem;
-    }
-
-    public void setCaminhoImagem(String caminhoImagem) {
-        this.caminhoImagem = caminhoImagem;
-    }
 
     public int getIdProduto() {
         return idProduto;
@@ -144,11 +70,11 @@ public class Produto implements Serializable {
         this.idioma = idioma;
     }
 
-    public List<Autor> getAutores() {
+    public Collection<Autor> getAutores() {
         return autores;
     }
 
-    public void setAutores(List<Autor> autores) {
+    public void setAutores(Collection<Autor> autores) {
         this.autores = autores;
     }
 

@@ -102,4 +102,6 @@ public class Funcionario implements Serializable {
         this.senhaFuncionario = senhaFuncionario;
     }
     
+    
+  
 }
