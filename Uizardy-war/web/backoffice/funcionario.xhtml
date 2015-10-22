@@ -71,12 +71,10 @@
                             </div>
                             <h:outputLabel class="col-lg-3 control-label" for="status" value="Status" />
                             <div class="col-lg-9">
-                                <h:panelGrid columns="2" style="margin-bottom:20px" cellpadding="5">
-                                    <p:selectOneRadio id="console" value="#{funcionarioBean.funcionario.statusFuncionario}" required="true">
-                                        <f:selectItem itemLabel="Ativo" itemValue="Ativo" />
-                                        <f:selectItem itemLabel="Inativo" itemValue="Inativo" />
-                                    </p:selectOneRadio>
-                                </h:panelGrid>
+                                <p:selectOneRadio id="console" value="#{funcionarioBean.funcionario.statusFuncionario}" required="true">
+                                    <f:selectItem itemLabel="Ativo" itemValue="#{true}" />
+                                    <f:selectItem itemLabel="Inativo" itemValue="#{false}" />
+                                </p:selectOneRadio>
                             </div>
 
                             <div class="pull-right col-lg-offset-1 col-lg-8">
@@ -160,12 +158,10 @@
                             </div>
                             <h:outputLabel class="col-lg-3 control-label" for="status" value="Status" />
                             <div class="col-lg-9">
-                                <h:panelGrid columns="2" style="margin-bottom:20px" cellpadding="5">
-                                    <p:selectOneRadio id="console" value="#{funcionarioBean.funcionario.statusFuncionario}" >
-                                        <f:selectItem itemLabel="Ativo" itemValue="Ativo" />
-                                        <f:selectItem itemLabel="Inativo" itemValue="Inativo" />
-                                    </p:selectOneRadio>
-                                </h:panelGrid>
+                                <p:selectOneRadio id="console" value="#{funcionarioBean.funcionario.statusFuncionario}" required="true">
+                                    <f:selectItem itemLabel="Ativo" itemValue="#{true}" />
+                                    <f:selectItem itemLabel="Inativo" itemValue="#{false}" />
+                                </p:selectOneRadio>
                             </div>
 
                             <div class="pull-right col-lg-offset-1 col-lg-8">

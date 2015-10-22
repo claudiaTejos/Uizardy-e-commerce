@@ -10,7 +10,6 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import sp.senac.br.uizardy.commons.Idioma;
 import sp.senac.br.uizardy.commons.Produto;
 
 /**
@@ -32,10 +31,11 @@ public class ProdutoEJB implements ProdutoEJBLocal {
     public void alterar(Produto produto) {
         Produto temp = em.find(Produto.class, produto.getIdProduto());
         if (temp!=null) {
-            temp.setAutores(produto.getAutores());
+            temp.setNomeAutor(produto.getNomeAutor());
             temp.setDescricaoProduto(produto.getDescricaoProduto());
             temp.setDisponivel(produto.isDisponivel());
             temp.setEdicaoProduto(produto.getEdicaoProduto());
+            temp.setCaminhoImagem(produto.getCaminhoImagem());
             temp.setFornecedor(produto.getFornecedor());
             temp.setIdioma(produto.getIdioma());
             temp.setNomeProduto(produto.getNomeProduto());
