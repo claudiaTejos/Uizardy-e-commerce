@@ -19,5 +19,6 @@ public interface FuncionarioEJBLocal {
     public void alterar(Funcionario funcionario);
     public List<Funcionario> pesquisar();
     public Funcionario pesquisar (int id);
+    public Funcionario pesquisar (String cpf);
     
 }

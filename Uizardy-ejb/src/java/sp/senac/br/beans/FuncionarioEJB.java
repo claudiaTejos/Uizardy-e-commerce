@@ -64,4 +64,12 @@ public class FuncionarioEJB implements FuncionarioEJBLocal {
         return em.find(Funcionario.class, id);
     }
 
+    @Override
+    public Funcionario pesquisar(String cpf) {
+        Query query = em.createQuery("Select Funcionario from Funcionario funcionario WHERE funcionario.cpfFuncionario LIKE :cpf");
+        query.setParameter("cpf", cpf);
+        Funcionario func = (Funcionario)query.getSingleResult();
+        return func;
+    }
+
 }

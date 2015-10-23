@@ -140,6 +140,7 @@
                 <p:messages autoUpdate="true" />
                 <h:form class="form-horizontal">
                     <div class="form-group form-horizontal">
+                        <h:inputHidden value="#{produtoBean.produto.idProduto}" />
                         <h:outputLabel class="col-lg-3 control-label" for="nomeProduto" value="Nome Produto" />
                         <div class="col-lg-9">
                             <h:inputText class="form-control" required="true" id="nomeProduto" value="#{produtoBean.produto.nomeProduto}" />

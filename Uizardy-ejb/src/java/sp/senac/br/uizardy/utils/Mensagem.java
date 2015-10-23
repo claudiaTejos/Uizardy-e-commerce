@@ -15,6 +15,11 @@ import javax.faces.context.FacesContext;
 public class Mensagem {
     public static final String INCLUIDO_SUCESSO = "Incluido com sucesso!";
     public static final String ALTERADO_SUCESSO = "Alterado com sucesso!";
+    public static final String LOGIN_ERRO = "Usuario e/ou senha invalidos";
+    public static final String LOGIN_SUCESSO = "Sucesso";
+    public static final String EDITADO_SUCESSO = "Editado com sucesso";
+    public static final String EDITADO_CANCELADO = "Edição cancelada";
+    public static final String CELULA_ALTERADA = "Celula alterada";
     
     public static void mensagemInfo (String msg){
         FacesMessage mensagem = new FacesMessage(FacesMessage.SEVERITY_INFO, msg, null);
