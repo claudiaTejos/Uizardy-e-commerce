@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Uizardy E-Commerce</title>
 
@@ -93,7 +94,28 @@
                     <div class="latest-product">
                         <h2 class="section-title">Novos Produtos</h2>
                         <div class="product-carousel">
-                            <div class="single-product">
+                            <ui:repeat value="#{produtoBean.pesquisar()}" var="produtos">
+                                <!--<p><h:outputLink>
+                                        <h:outputText value="#{cat.nome}" />
+                                    </h:outputLink></p>-->
+                                <div class="single-product">
+                                    <div class="product-f-image">
+                                        <p:graphicImage value="#{produtos.caminhoImagem}"/>
+                                        <div class="product-hover">
+                                            <p:commandLink class="add-to-cart-link" action=""  ><i class="fa fa-shopping-cart"></i> Adicionar ao Carrinho</p:commandLink>
+                                            <p:commandLink class="view-details-link" action=""><i class="fa fa-link"></i> Mais Detalhe </p:commandLink>
+                                        </div>
+                                    </div>
+                                
+                                    <h2><p:commandLink value="#{produtos.nomeProduto}"/></h2>
+                                
+                                    <div class="product-carousel-price">
+                                        <ins><h:outputText value="#{produtos.valorProduto}" /></ins>
+                                    </div> 
+                                </div>
+                                
+                             </ui:repeat>
+                           <!-- <div class="single-product">
                                 <div class="product-f-image">
                                     <img src=".../img/comoDizerTudoIngles.png" alt=""/>
                                     <div class="product-hover">
@@ -108,7 +130,7 @@
                                     <ins>$700.00</ins>
                                 </div> 
                             </div>
-                            <!--<div class="single-product">
+                            <div class="single-product">
                                 <div class="product-f-image">
                                     <img src="../img/frances.png" alt=""/>
                                     <div class="product-hover">
