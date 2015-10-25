@@ -42,7 +42,7 @@
                             <div class="row">
                             <h:outputLabel class="col-lg-3 control-label" for="fornecedor" value="Fornecedor" />
                             <div class="col-lg-9">
-                                <h:selectOneMenu id="fornecedor" value="#{produtoBean.idFornecedor}">
+                                <h:selectOneMenu id="fornecedor" value="#{produtoBean.idFornecedor}" styleClass="dropDownProduto">
                                     <f:selectItems value="#{fornecedorBean.pesquisar()}" var="fornecedor" itemLabel="#{fornecedor.razaoSocial}" itemValue="#{fornecedor.idFornecedor}" />
                                 </h:selectOneMenu>
                             </div>
@@ -51,7 +51,7 @@
                             <div class="row">
                             <h:outputLabel class="col-lg-3 control-label" for="idioma" value="Idioma" />
                             <div class="col-lg-9">
-                                <h:selectOneMenu id="idioma" value="#{produtoBean.idIdioma}" >
+                                <h:selectOneMenu id="idioma" value="#{produtoBean.idIdioma}"  styleClass="dropDownProduto">
                                     <f:selectItems value="#{idiomaBean.pesquisar()}" var="idioma" itemLabel="#{idioma.nomeIdioma}" itemValue="#{idioma.idIdioma}"/>
                                 </h:selectOneMenu>
                             </div>

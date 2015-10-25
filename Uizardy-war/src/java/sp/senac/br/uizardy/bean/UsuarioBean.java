@@ -5,12 +5,12 @@
  */
 package sp.senac.br.uizardy.bean;
 
-import static com.sun.xml.internal.ws.api.message.Packet.State.ClientResponse;
+//import static com.sun.xml.internal.ws.api.message.Packet.State.ClientResponse;
 import java.io.Serializable;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.ws.rs.core.MediaType;
+//import javax.ws.rs.core.MediaType;
 import sp.senac.br.beans.FuncionarioEJBLocal;
 import sp.senac.br.uizardy.commons.Funcionario;
 import sp.senac.br.uizardy.utils.Mensagem;
