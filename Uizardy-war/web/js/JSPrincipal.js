@@ -2,16 +2,10 @@ jQuery(document).ready(function($){
     
     // jQuery sticky Menu
     
-    // menu de categorias scrool
-    
-    $(".site-branding-area").sticky({topSpacing:0});
-    
-	$(".mainmenu-area").sticky({topSpacing:60});
+	$(".mainmenu-area").sticky({topSpacing:0});
     
     
-    
-    
-   /* $('.product-carousel').owlCarousel({
+    $('.product-carousel').owlCarousel({
         loop:true,
         nav:true,
         margin:20,
@@ -89,5 +83,6 @@ jQuery(document).ready(function($){
     $('body').scrollspy({ 
         target: '.navbar-collapse',
         offset: 95
-    })*/                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+    })      
 });
+
