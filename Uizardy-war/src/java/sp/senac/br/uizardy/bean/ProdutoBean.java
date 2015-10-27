@@ -66,6 +66,11 @@ public class ProdutoBean {
         this.produto = produto;
     }
     
+    public String setProdutoPaginaDetalhes(Produto produto) {
+        this.produto = produto;
+        return "detalheDeProduto";
+    }
+    
     //cadastra um novo produto
     public void cadastrar(){
         Fornecedor fornecedor = fornecedorEJB.pesquisar(Integer.parseInt(idFornecedor));

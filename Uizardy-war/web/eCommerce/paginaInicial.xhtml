@@ -102,12 +102,19 @@
                                     <div class="product-f-image">
                                         <p:graphicImage value="#{produtos.caminhoImagem}"/>
                                         <div class="product-hover">
-                                            <p:commandLink class="add-to-cart-link" action=""  ><i class="fa fa-shopping-cart"></i> Adicionar ao Carrinho</p:commandLink>
-                                            <p:commandLink class="view-details-link" action=""><i class="fa fa-link"></i> Mais Detalhe </p:commandLink>
+                                            <h:form>
+                                                <p:commandLink class="add-to-cart-link"   ><i class="fa fa-shopping-cart"></i> Adicionar ao Carrinho</p:commandLink>
+                                                <!--<h:link class="view-details-link" outcome="detalheDeProduto" value="#{produtoBean.setProduto(produtos)}"><i class="fa fa-link"></i> Mais Detalhe </h:link>-->
+                                                <p:commandLink class="view-details-link" action="#{produtoBean.setProdutoPaginaDetalhes(produtos)}"><i class="fa fa-link"></i> Mais Detalhe </p:commandLink>
+                                            </h:form>
                                         </div>
                                     </div>
                                 
-                                    <h2><p:commandLink value="#{produtos.nomeProduto}"/></h2>
+                                    <h2>
+                                        <h:form>
+                                            <p:commandLink value="#{produtos.nomeProduto}" action="#{produtoBean.setProdutoPaginaDetalhes(produtos)}"/>
+                                        </h:form>
+                                    </h2>
                                 
                                     <div class="product-carousel-price">
                                         <ins><h:outputText value="#{produtos.valorProduto}" /></ins>
