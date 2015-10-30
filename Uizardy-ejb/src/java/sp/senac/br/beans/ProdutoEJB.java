@@ -55,4 +55,19 @@ public class ProdutoEJB implements ProdutoEJBLocal {
     public Produto pesquisar(int id) {
         return em.find(Produto.class, id);
     }
+
+    @Override
+    public List<Produto> pesquisar(String busca) {
+        Query query = em.createQuery("Select Produto from Produto produto "
+                + "WHERE produto.nomeProduto LIKE :busca OR"
+                + " produto.fornecedor.razaoSocial LIKE :busca2 OR produto.nomeAutor LIKE :busca3 ");
+        query.setParameter("busca",  busca + "%");
+        query.setParameter("busca2", busca + "%");
+        query.setParameter("busca3",  busca + "%");
+        List<Produto> produtos = (List<Produto>) query.getResultList();
+        return produtos;
+        
+        
+    }
+    
 }

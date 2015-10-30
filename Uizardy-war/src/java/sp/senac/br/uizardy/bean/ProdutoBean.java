@@ -37,6 +37,9 @@ public class ProdutoBean {
     
     private String idIdioma;
     private String idFornecedor;
+    
+    private String buscaProduto;
+    private List<Produto> resultBusca;
 
     public String getIdIdioma() {
         return idIdioma;
@@ -98,5 +101,30 @@ public class ProdutoBean {
         this.produto.setIdioma(idioma);
         produtoEJB.alterar(this.produto);
     }
+    
+    public String pesquisarProduto(){
+        resultBusca = produtoEJB.pesquisar(buscaProduto);
+        return "listagemDeProduto.xhtml";
+        
+    }
+
+    public List<Produto> getResultBusca() {
+        return resultBusca;
+    }
+
+    public void setResultBusca(List<Produto> resultBusca) {
+        this.resultBusca = resultBusca;
+    }
+
+    
+    public String getBuscaProduto() {
+        return buscaProduto;
+    }
+
+    public void setBuscaProduto(String buscaProduto) {
+        this.buscaProduto = buscaProduto;
+    }
+    
+    
     
 }
