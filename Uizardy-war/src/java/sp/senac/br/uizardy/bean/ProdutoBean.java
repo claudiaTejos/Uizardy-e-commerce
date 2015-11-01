@@ -104,7 +104,7 @@ public class ProdutoBean {
     
     public String pesquisarProduto(){
         resultBusca = produtoEJB.pesquisar(buscaProduto);
-        return "listagemDeProduto.xhtml";
+        return "listagemDeProduto";
         
     }
 

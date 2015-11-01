@@ -5,7 +5,7 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>UIzardy E-Commerce</title>
+        <title>Uizardy E-Commerce</title>
         
          <meta charset="utf-8"/>
         <!-- Compatiblidade com IE-->
@@ -34,8 +34,8 @@
                 <ui:repeat  value="#{produtoBean.resultBusca}" var="produtos">
                     <div class="col-md-4 col-xs-6">
                         <div class="single-product">
-                                <div class="product-f-image">
-                                    <p:graphicImage class="img-responsive" value="#{produtos.caminhoImagem}"/>
+                                <div class="product-f-image img-responsive">
+                                    <p:graphicImage value="#{produtos.caminhoImagem}" class="img-responsive" />
                                     <!--<img  class="img-responsive" src="img/learningGreek.png">-->
                                     <div class="product-hover">
                                         <h:form>
@@ -56,7 +56,7 @@
                                 </h2>
                                 
                                 <div class="product-carousel-price">
-                                    <ins><h:outputText value="#{produtos.valorProduto}" /></ins>
+                                    <ins class="product-carousel-price"><h:outputText   value="#{produtos.valorProduto}" /></ins>
                                     <!--<ins>R$ 29,90</ins> 
                                 <del>R$ 39,50</del>-->
                                 </div> 
