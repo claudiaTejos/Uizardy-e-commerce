@@ -8,7 +8,9 @@ package sp.senac.br.uizardy.bean;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+//import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import sp.senac.br.beans.FornecedorEJBLocal;
 import sp.senac.br.beans.IdiomaEJBLocal;
 import sp.senac.br.beans.ProdutoEJBLocal;
@@ -21,7 +23,7 @@ import sp.senac.br.uizardy.commons.Produto;
  * @author blanc
  */
 @ManagedBean
-@RequestScoped
+@SessionScoped
 public class ProdutoBean {
     
     private Produto produto;
@@ -58,7 +60,7 @@ public class ProdutoBean {
     }
 
     public ProdutoBean() {
-        this.produto = new Produto();
+        //this.produto = new Produto();
     }
 
     public Produto getProduto() {
@@ -71,7 +73,7 @@ public class ProdutoBean {
     
     public String setProdutoPaginaDetalhes(Produto produto) {
         this.produto = produto;
-        return "detalheDeProduto";
+        return "detalheDeProduto?faces-redirect=true";
     }
     
     //cadastra um novo produto
@@ -104,8 +106,7 @@ public class ProdutoBean {
     
     public String pesquisarProduto(){
         resultBusca = produtoEJB.pesquisar(buscaProduto);
-        return "listagemDeProduto";
-        
+         return "listagemDeProduto?faces-redirect=true";        
     }
 
     public List<Produto> getResultBusca() {
@@ -123,6 +124,12 @@ public class ProdutoBean {
 
     public void setBuscaProduto(String buscaProduto) {
         this.buscaProduto = buscaProduto;
+    }
+    
+    public void limparCadastro(){
+        this.produto = null;
+        
+        
     }
     
     

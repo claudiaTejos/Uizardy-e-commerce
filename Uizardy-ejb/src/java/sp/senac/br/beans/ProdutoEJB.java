@@ -61,9 +61,9 @@ public class ProdutoEJB implements ProdutoEJBLocal {
         Query query = em.createQuery("Select Produto from Produto produto "
                 + "WHERE produto.nomeProduto LIKE :busca OR"
                 + " produto.fornecedor.razaoSocial LIKE :busca2 OR produto.nomeAutor LIKE :busca3 ");
-        query.setParameter("busca",  busca + "%");
-        query.setParameter("busca2", busca + "%");
-        query.setParameter("busca3",  busca + "%");
+        query.setParameter("busca",  "%" + busca + "%");
+        query.setParameter("busca2", "%" + busca + "%");
+        query.setParameter("busca3", "%" + busca + "%");
         List<Produto> produtos = (List<Produto>) query.getResultList();
         return produtos;
         
