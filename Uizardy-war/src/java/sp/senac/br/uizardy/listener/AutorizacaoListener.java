@@ -53,5 +53,4 @@ public class AutorizacaoListener implements PhaseListener{
     public PhaseId getPhaseId() {
         return PhaseId.RESTORE_VIEW;
     }
-    
 }
