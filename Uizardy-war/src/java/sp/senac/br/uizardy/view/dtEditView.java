@@ -11,7 +11,6 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import org.primefaces.event.CellEditEvent;
@@ -46,18 +45,21 @@ public class dtEditView implements Serializable {
     }
      
     public void onRowEdit(RowEditEvent event) {
-        FacesMessage msg = new FacesMessage(Mensagem.EDITADO_SUCESSO, String.valueOf(((Idioma) event.getObject()).getIdIdioma()));
+        FacesMessage msg = new FacesMessage(Mensagem.EDITADO_SUCESSO, ((Idioma) event.getObject()).getNomeIdioma());
         FacesContext.getCurrentInstance().addMessage(null, msg);
     }
      
     public void onRowCancel(RowEditEvent event) {
-        FacesMessage msg = new FacesMessage(Mensagem.EDITADO_CANCELADO, String.valueOf(((Idioma) event.getObject()).getIdIdioma()));
+        FacesMessage msg = new FacesMessage(Mensagem.EDITADO_CANCELADO, ((Idioma) event.getObject()).getNomeIdioma());
         FacesContext.getCurrentInstance().addMessage(null, msg);
     }
      
     public void onCellEdit(CellEditEvent event) {
         Object oldValue = event.getOldValue();
         Object newValue = event.getNewValue();
+        
+        Idioma idiomaAlterado = (Idioma) newValue;
+        idiomaEJB.alterar(idiomaAlterado);
          
         if(newValue != null && !newValue.equals(oldValue)) {
             FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, Mensagem.CELULA_ALTERADA, "Antigo: " + oldValue + ", Novo:" + newValue);
