@@ -23,17 +23,30 @@ public class AutorizacaoListener implements PhaseListener{
         FacesContext facesContext = event.getFacesContext();
         
         String pagina = facesContext.getViewRoot().getViewId();
+        String login = "/backoffice/login.xhtml";
+        String inicial = "/";
+        
         UsuarioBean usuarioBean = facesContext.getApplication().evaluateExpressionGet(facesContext, "#{usuarioBean}", UsuarioBean.class);
         
-        if (pagina.contains("produto.xhtml") && usuarioBean.getFuncionario() == null) {
+        //Não dar acesso à quem não estiver logado
+        if (usuarioBean.getFuncionario() == null && !pagina.equals(login) && !pagina.equals(inicial)) {
             NavigationHandler navigationHandler = facesContext.getApplication().getNavigationHandler();
-            navigationHandler.handleNavigation(facesContext, null, pagina);
+            navigationHandler.handleNavigation(facesContext, null, login);
+            return;
+        }
+        
+        String acessoNegado = "/backoffice/acesso-negado.xhtml";
+        String funcionario = "/backoffice/funcionario.xhtml";
+        //Não dar acesso às funções de gerente para quem não for gerente
+        if (usuarioBean.getFuncionario() != null && !usuarioBean.getFuncionario().getCargoFuncionario().equals("Gerente") && pagina.equals(funcionario)) {
+            NavigationHandler navigationHandler = facesContext.getApplication().getNavigationHandler();
+            navigationHandler.handleNavigation(facesContext, null, acessoNegado);
         }
     }
 
     @Override
     public void beforePhase(PhaseEvent event) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
 
     @Override
