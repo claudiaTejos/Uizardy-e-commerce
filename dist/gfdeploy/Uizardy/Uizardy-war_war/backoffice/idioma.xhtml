@@ -54,21 +54,21 @@
 
                     <p:dataTable id="idiomaTabela" var="idioma" value="#{dtEditView.listaIdioma()}" editable="true" paginator="true" rows="10">
 
-                       <p:ajax event="rowEdit" listener="#{dtEditView.onRowEdit}" update=":form:msgs" />
-                       <p:ajax event="rowEditCancel" listener="#{dtEditView.onRowCancel}" update=":form:msgs" />
+                        <p:ajax event="rowEdit" listener="#{dtEditView.onRowEdit}" update=":form:msgs" />
+                        <p:ajax event="rowEditCancel" listener="#{dtEditView.onRowCancel}" update=":form:msgs" />
 
-                       <p:column headerText="Id" style="width:100px">
-                           <f:facet name="output"><h:outputText value="#{idioma.idIdioma}" /></f:facet>
-                       </p:column>
+                        <p:column headerText="Id" style="width:100px">
+                            <h:outputText value="#{idioma.idIdioma}" />
+                        </p:column>
 
-                       <p:column headerText="Nome">
-                           <p:cellEditor>
-                               <f:facet name="output"><h:outputText value="#{idioma.nomeIdioma}" /></f:facet>
-                               <f:facet name="input"><p:inputText value="#{idioma.nomeIdioma}" style="width:100%" label="Year"/></f:facet>
-                           </p:cellEditor>
-                       </p:column>
+                        <p:column headerText="Nome">
+                            <p:cellEditor>
+                                <f:facet name="output"><h:outputText value="#{idioma.nomeIdioma}" /></f:facet>
+                                <f:facet name="input"><p:inputText value="#{idioma.nomeIdioma}" style="width:100%" label=""/></f:facet>
+                            </p:cellEditor>
+                        </p:column>
 
-                       <p:column headerText="Editar" style="width:60px">
+                       <p:column headerText="Editar" style="width:70px">
                            <p:rowEditor />
                        </p:column>
                    </p:dataTable>

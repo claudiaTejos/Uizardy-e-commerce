@@ -78,10 +78,11 @@
                     </div>
                     <div class="col-md-4">
                         <div class="compraDeLivro">
-                            <p><h:outputLink class="btn btn-lg btn-primary" value="">Adicionar ao Carrinho</h:outputLink>
-                                <!--<a class="btn btn-lg btn-primary" href="#" role="button">Adicionar ao Carrinho</a>-->
-                            </p>
-                            
+                            <h:form>
+                                <p><h:commandLink class="btn btn-lg btn-primary" action="#{carrinhoBean.addListaProduto(produtoBean.produto.idProduto)}" >Adicionar ao Carrinho</h:commandLink>
+                                    <!--<a class="btn btn-lg btn-primary" href="#" role="button">Adicionar ao Carrinho</a>-->
+                                </p>
+                            </h:form>
                         </div>
                     </div>
                 </div>
