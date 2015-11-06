@@ -78,7 +78,8 @@ public class UsuarioBean implements Serializable{
     }
     
     public String sair(){
-        return null;
+        funcionario = null;
+        return "nao-autenticado";
     }
     
     public void novaSenha (){
