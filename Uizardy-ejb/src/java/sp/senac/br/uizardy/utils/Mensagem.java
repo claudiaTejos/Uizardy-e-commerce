@@ -20,6 +20,7 @@ public class Mensagem {
     public static final String EDITADO_SUCESSO = "Editado com sucesso";
     public static final String EDITADO_CANCELADO = "Edição cancelada";
     public static final String CELULA_ALTERADA = "Celula alterada";
+    public static String SENHA_ENVIADA = "Senha enviada para o email cadastrado";
     
     public static void mensagemInfo (String msg){
         FacesMessage mensagem = new FacesMessage(FacesMessage.SEVERITY_INFO, msg, null);

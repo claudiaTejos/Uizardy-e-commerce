@@ -29,6 +29,7 @@ public class Funcionario implements Serializable {
     private String enderecoFuncionario;
     private String telefoneFuncionario;
     private String senhaFuncionario;
+    private String emailFuncionario;
     private boolean statusFuncionario;
 
     public int getIdFuncionario() {
@@ -37,6 +38,14 @@ public class Funcionario implements Serializable {
 
     public void setIdFuncionario(int idFuncionario) {
         this.idFuncionario = idFuncionario;
+    }
+
+    public String getEmailFuncionario() {
+        return emailFuncionario;
+    }
+
+    public void setEmailFuncionario(String emailFuncionario) {
+        this.emailFuncionario = emailFuncionario;
     }
 
     public String getNomeFuncionario() {
@@ -105,16 +114,17 @@ public class Funcionario implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 97 * hash + this.idFuncionario;
-        hash = 97 * hash + Objects.hashCode(this.nomeFuncionario);
-        hash = 97 * hash + Objects.hashCode(this.cpfFuncionario);
-        hash = 97 * hash + Objects.hashCode(this.rgFuncionario);
-        hash = 97 * hash + Objects.hashCode(this.cargoFuncionario);
-        hash = 97 * hash + Objects.hashCode(this.enderecoFuncionario);
-        hash = 97 * hash + Objects.hashCode(this.telefoneFuncionario);
-        hash = 97 * hash + Objects.hashCode(this.senhaFuncionario);
-        hash = 97 * hash + (this.statusFuncionario ? 1 : 0);
+        int hash = 3;
+        hash = 17 * hash + this.idFuncionario;
+        hash = 17 * hash + Objects.hashCode(this.nomeFuncionario);
+        hash = 17 * hash + Objects.hashCode(this.cpfFuncionario);
+        hash = 17 * hash + Objects.hashCode(this.rgFuncionario);
+        hash = 17 * hash + Objects.hashCode(this.cargoFuncionario);
+        hash = 17 * hash + Objects.hashCode(this.enderecoFuncionario);
+        hash = 17 * hash + Objects.hashCode(this.telefoneFuncionario);
+        hash = 17 * hash + Objects.hashCode(this.senhaFuncionario);
+        hash = 17 * hash + Objects.hashCode(this.emailFuncionario);
+        hash = 17 * hash + (this.statusFuncionario ? 1 : 0);
         return hash;
     }
 
@@ -151,6 +161,9 @@ public class Funcionario implements Serializable {
         if (!Objects.equals(this.senhaFuncionario, other.senhaFuncionario)) {
             return false;
         }
+        if (!Objects.equals(this.emailFuncionario, other.emailFuncionario)) {
+            return false;
+        }
         if (this.statusFuncionario != other.statusFuncionario) {
             return false;
         }
@@ -159,7 +172,7 @@ public class Funcionario implements Serializable {
 
     @Override
     public String toString() {
-        return "Funcionario{" + "idFuncionario=" + idFuncionario + ", nomeFuncionario=" + nomeFuncionario + ", cpfFuncionario=" + cpfFuncionario + ", rgFuncionario=" + rgFuncionario + ", cargoFuncionario=" + cargoFuncionario + ", enderecoFuncionario=" + enderecoFuncionario + ", telefoneFuncionario=" + telefoneFuncionario + ", senhaFuncionario=" + senhaFuncionario + ", statusFuncionario=" + statusFuncionario + '}';
+        return "Funcionario{" + "idFuncionario=" + idFuncionario + ", nomeFuncionario=" + nomeFuncionario + ", cpfFuncionario=" + cpfFuncionario + ", rgFuncionario=" + rgFuncionario + ", cargoFuncionario=" + cargoFuncionario + ", enderecoFuncionario=" + enderecoFuncionario + ", telefoneFuncionario=" + telefoneFuncionario + ", senhaFuncionario=" + senhaFuncionario + ", emailFuncionario=" + emailFuncionario + ", statusFuncionario=" + statusFuncionario + '}';
     }
   
 }

@@ -44,6 +44,7 @@ public class FuncionarioEJB implements FuncionarioEJBLocal {
             temp.setTelefoneFuncionario(funcionario.getTelefoneFuncionario());
             temp.setStatusFuncionario(funcionario.isStatusFuncionario());
             temp.setSenhaFuncionario(funcionario.getSenhaFuncionario());
+            temp.setEmailFuncionario(funcionario.getEmailFuncionario());
         }
     
     }

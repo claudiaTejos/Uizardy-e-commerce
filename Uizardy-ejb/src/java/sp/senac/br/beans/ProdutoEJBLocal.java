@@ -19,4 +19,5 @@ public interface ProdutoEJBLocal {
     public void alterar(Produto produto);
     public List<Produto> pesquisar();
     public Produto pesquisar (int id);
+    public List<Produto> pesquisar(String busca);
 }
