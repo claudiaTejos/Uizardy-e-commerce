@@ -24,7 +24,7 @@ public class AutorizacaoListener implements PhaseListener{
         
         String pagina = facesContext.getViewRoot().getViewId();
         String login = "/backoffice/login.xhtml";
-        String inicial = "/";
+        String inicial = "/eCommerce/";
         
         UsuarioBean usuarioBean = facesContext.getApplication().evaluateExpressionGet(facesContext, "#{usuarioBean}", UsuarioBean.class);
         
