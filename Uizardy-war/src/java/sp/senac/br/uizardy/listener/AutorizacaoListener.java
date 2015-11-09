@@ -29,7 +29,7 @@ public class AutorizacaoListener implements PhaseListener{
         UsuarioBean usuarioBean = facesContext.getApplication().evaluateExpressionGet(facesContext, "#{usuarioBean}", UsuarioBean.class);
         
         //Não dar acesso à quem não estiver logado
-        if (usuarioBean.getFuncionario() == null && !pagina.equals(login) && !pagina.equals(inicial)) {
+        if (usuarioBean.getFuncionario() == null && !pagina.equals(login) && !pagina.startsWith(inicial)) {
             NavigationHandler navigationHandler = facesContext.getApplication().getNavigationHandler();
             navigationHandler.handleNavigation(facesContext, null, login);
             return;

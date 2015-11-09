@@ -7,14 +7,29 @@
     
     
     <navigation-rule>
-                <from-view-id>index.html</from-view-id>
-                <navigation-case>
-                    <from-outcome>detalheDeProduto</from-outcome>
-                    <to-view-id>detalheDeProduto.xhtml</to-view-id>
-                </navigation-case>
-                <!--<navigation-case>
-                    <from-outcome>page2</from-outcome>
-                    <to-view-id>page_2.xhtml</to-view-id>
-                </navigation-case>-->
-            </navigation-rule>
+        <from-view-id>index.html</from-view-id>
+        <navigation-case>
+            <from-outcome>detalheDeProduto</from-outcome>
+            <to-view-id>detalheDeProduto.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>listagemDeProduto</from-outcome>
+            <to-view-id>listagemDeProduto.xhtml</to-view-id>
+        </navigation-case>
+                
+        <!-- Joana -->
+        <from-view-id>backoffice/login.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>autenticado</from-outcome>
+                <to-view-id>backoffice/produto.xhtml</to-view-id>
+        </navigation-case>
+        <from-view-id>*</from-view-id>
+        <navigation-case>
+            <from-outcome>nao-autenticado</from-outcome>
+                <to-view-id>backoffice/login.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <lifecycle>
+        <phase-listener>sp.senac.br.uizardy.listener.AutorizacaoListener</phase-listener>
+    </lifecycle> 
 </faces-config>

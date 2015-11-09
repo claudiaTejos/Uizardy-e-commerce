@@ -5,7 +5,6 @@
  */
 package sp.senac.br.uizardy.bean;
 
-//import static com.sun.xml.internal.ws.api.message.Packet.State.ClientResponse;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
@@ -19,7 +18,6 @@ import javax.ws.rs.core.MediaType;
 import sp.senac.br.beans.FuncionarioEJBLocal;
 import sp.senac.br.uizardy.commons.Funcionario;
 import sp.senac.br.uizardy.utils.Mensagem;
-
 
 /**
  *
@@ -56,13 +54,14 @@ public class UsuarioBean implements Serializable{
     public UsuarioBean() {
     }
         
-    public void autenticar(){
+    public String autenticar(){
         //Validacao
         if (cpfUsuario != null) {
             try {
                 funcionario = funcionarioEJB.pesquisar(cpfUsuario);
                 if (funcionario.getSenhaFuncionario().equals(this.senhaUsuario)) {
                     Mensagem.mensagemInfo(Mensagem.LOGIN_SUCESSO);
+                    return "autenticado";
                 }
                 else Mensagem.mensagemErro(Mensagem.LOGIN_ERRO);
             } catch (Exception e) {
@@ -70,6 +69,7 @@ public class UsuarioBean implements Serializable{
                 Mensagem.mensagemErro(Mensagem.LOGIN_ERRO);
             }
         }
+        return null;
         
     }
 
@@ -81,14 +81,13 @@ public class UsuarioBean implements Serializable{
         funcionario = null;
         return "nao-autenticado";
     }
-    
+   
     public void novaSenha (){
         funcionario = funcionarioEJB.pesquisar(cpfUsuario);
-        if (cpfUsuario.equalsIgnoreCase(funcionario.getCpfFuncionario())) {
+            if (cpfUsuario.equalsIgnoreCase(funcionario.getCpfFuncionario())) {
             Client client = Client.create();
             client.addFilter(new HTTPBasicAuthFilter("api", "key-10686595d64de24af543b2a48abe5e08"));
-            WebResource webResource = client.resource("https://api.mailgun.net/v3/sandbox1a9e48fd61b54cd08d45f3648e7b1c68.mailgun.org" +
-                                    "/messages");
+            WebResource webResource = client.resource("https://api.mailgun.net/v3/sandbox1a9e48fd61b54cd08d45f3648e7b1c68.mailgun.org" + "/messages");
             MultivaluedMapImpl formData = new MultivaluedMapImpl();
             formData.add("from", "Mailgun Sandbox <postmaster@sandbox1a9e48fd61b54cd08d45f3648e7b1c68.mailgun.org>");
             formData.add("to", funcionario.getEmailFuncionario());
@@ -100,5 +99,4 @@ public class UsuarioBean implements Serializable{
         }
         Mensagem.mensagemErro(Mensagem.LOGIN_ERRO);
     }
-    
 }
