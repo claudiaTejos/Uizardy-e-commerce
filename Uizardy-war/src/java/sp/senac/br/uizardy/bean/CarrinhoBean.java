@@ -12,7 +12,8 @@ import javax.faces.bean.SessionScoped;
 import sp.senac.br.beans.CarrinhoEJBLocal;
 import sp.senac.br.beans.ProdutoEJBLocal;
 import sp.senac.br.uizardy.commons.Carrinho;
-import sp.senac.br.uizardy.commons.Produto;
+import sp.senac.br.uizardy.commons.EnderecoEntrega;
+import sp.senac.br.uizardy.commons.ItemDeCompra;
 
 /**
  *
@@ -56,10 +57,19 @@ public class CarrinhoBean {
     ProdutoEJBLocal pro;
     
     public void addListaProduto(String idProduto){
-        carrinho.getProduto().add(pro.pesquisar(1));
+        ItemDeCompra item = new ItemDeCompra();
+        item.setProduto(pro.pesquisar(Integer.parseInt(idProduto)));
+        item.setQuantidadeProduto(1);
+        this.carrinho.getItensDoCarrinho().add(item);
     }
     public CarrinhoBean() {
-        this.carrinho = new Carrinho();                
+        this.carrinho = new Carrinho();
+        EnderecoEntrega end = new EnderecoEntrega();
+        end.setValorEntrega(13.5);
+        this.carrinho.setEnderecoEntrega(end);
+        double valorParcial = this.carrinho.getValorParcial();
+        double valorTotal = valorParcial + end.getValorEntrega();
+        this.carrinho.setValorTotal(valorTotal);
     }
     
 }

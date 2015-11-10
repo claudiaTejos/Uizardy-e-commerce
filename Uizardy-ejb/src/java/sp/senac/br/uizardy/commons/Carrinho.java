@@ -6,6 +6,7 @@
 package sp.senac.br.uizardy.commons;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import javax.persistence.Entity;
@@ -14,6 +15,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Carrinho implements Serializable {
@@ -23,25 +25,72 @@ public class Carrinho implements Serializable {
     private int idCarrinho;
     
     private double valorParcial;
+    private double valorTotal;
+    
+    @OneToOne
+    @JoinColumn(name="idEnderecoEntrega")
+    private EnderecoEntrega enderecoEntrega;
     
     @OneToMany
-    @JoinColumn(name="idProduto")
-    private List<Produto> produto;
+    @JoinColumn(name="idItem")
+    private List<ItemDeCompra> itensDoCarrinho;
+
+    public Carrinho() {
+        this.itensDoCarrinho = new ArrayList<>();
+    }
+
+    public EnderecoEntrega getCEP() {
+        return enderecoEntrega;
+    }
+
+    public void setCEP(EnderecoEntrega CEP) {
+        this.enderecoEntrega = CEP;
+    }
 
     public double getValorParcial() {
+        this.atualizaValorParcial();
         return valorParcial;
     }
 
     public void setValorParcial(double valorParcial) {
         this.valorParcial = valorParcial;
     }
-
-    public List<Produto> getProduto() {
-        return produto;
+    
+    public void atualizaValorParcial(){
+        this.valorParcial = 0;
+        for (ItemDeCompra item : itensDoCarrinho) {
+            this.valorParcial += item.getValorParcial();
+        }
     }
 
-    public void setProduto(List<Produto> produto) {
-        this.produto = produto;
+    public EnderecoEntrega getEnderecoEntrega() {
+        return enderecoEntrega;
+    }
+
+    public void setEnderecoEntrega(EnderecoEntrega enderecoEntrega) {
+        this.enderecoEntrega = enderecoEntrega;
+    }
+
+    public void atualizaValorTotal(){
+        this.valorTotal = this.valorParcial + this.enderecoEntrega.getValorEntrega();
+    }
+    
+    public double getValorTotal() {
+        this.atualizaValorTotal();
+        return valorTotal;
+    }
+
+    public void setValorTotal(double valorTotal) {
+        this.valorTotal = valorTotal;
+    }
+
+    public List<ItemDeCompra> getItensDoCarrinho() {
+        return itensDoCarrinho;
+    }
+
+    public void setItensDoCarrinho(List<ItemDeCompra> itensDoCarrinho) {
+        this.itensDoCarrinho = itensDoCarrinho;
+        this.atualizaValorParcial();
     }
 
     public int getIdCarrinho() {
@@ -56,8 +105,8 @@ public class Carrinho implements Serializable {
     public int hashCode() {
         int hash = 5;
         hash = 23 * hash + Objects.hashCode(this.idCarrinho);
-        hash = 23 * hash + (int) (Double.doubleToLongBits(this.valorParcial) ^ (Double.doubleToLongBits(this.valorParcial) >>> 32));
-        hash = 23 * hash + Objects.hashCode(this.produto);
+        hash = 23 * hash + (int) (Double.doubleToLongBits(this.valorTotal) ^ (Double.doubleToLongBits(this.valorTotal) >>> 32));
+        hash = 23 * hash + Objects.hashCode(this.itensDoCarrinho);
         return hash;
     }
 
@@ -73,10 +122,10 @@ public class Carrinho implements Serializable {
         if (!Objects.equals(this.idCarrinho, other.idCarrinho)) {
             return false;
         }
-        if (Double.doubleToLongBits(this.valorParcial) != Double.doubleToLongBits(other.valorParcial)) {
+        if (Double.doubleToLongBits(this.valorTotal) != Double.doubleToLongBits(other.valorTotal)) {
             return false;
         }
-        if (!Objects.equals(this.produto, other.produto)) {
+        if (!Objects.equals(this.itensDoCarrinho, other.itensDoCarrinho)) {
             return false;
         }
         return true;
@@ -84,7 +133,7 @@ public class Carrinho implements Serializable {
 
     @Override
     public String toString() {
-        return "Carrinho{" + "idCarrinho=" + idCarrinho + ", valorParcial=" + valorParcial + ", produto=" + produto + '}';
+        return "Carrinho{" + "idCarrinho=" + idCarrinho + ", valorParcial=" + valorTotal + ", produto=" + itensDoCarrinho + '}';
     }
     
 }

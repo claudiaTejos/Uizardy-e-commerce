@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Uizardy E-Commerce</title>
+
+        <meta charset="utf-8"/>
+        <!-- Compatiblidade com IE-->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <!-- Viewport para tamanho de acordo com o device, escala inicial 1-->
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <!-- Bootstrap -->
+         <link href="../css/bootstrap.min.css" rel="stylesheet" />
+        
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
+        
+        <link rel="stylesheet" href="../css/TelaInicialCSS.css"/>
+        <link rel="stylesheet" href="../css/paginaInicial.css"/>
+        
+        <link rel="stylesheet" href="../css/owl.carousel.css"/>
+        <link rel="stylesheet" href="../css/responsive.css"/>
+    </h:head>
+    <h:body>
+         <ui:insert name="header" >
+            <ui:include src="header.xhtml" />
+        </ui:insert>
+        
+        <div class="container">
+            <h:form>
+                <h:dataTable id="carrinhoTable" class="table table-striped table-bordered" cellspacing="0" width="100%" value="#{carrinhoBean.carrinho.itensDoCarrinho}" var="itensCompra">
+                    <h:column>
+                        <f:facet name="header">Produto</f:facet>
+                        <h:graphicImage height="150px" value="#{itensCompra.produto.caminhoImagem}" />
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">Descrição</f:facet>
+                        <h:outputText value="#{itensCompra.produto.descricaoProduto}" />
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">Preço</f:facet>
+                        <h:outputText value="#{itensCompra.produto.valorProduto}" />
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">Quantidade</f:facet>
+                        <p:spinner value="#{itensCompra.quantidadeProduto}" min="1" max="#{itensCompra.produto.qntProduto}">
+                            <p:ajax update="valorParcialProduto" process="@this" />
+                        </p:spinner>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">Total</f:facet>
+                        R$ <h:outputText id="valorParcialProduto" value="#{itensCompra.valorParcial}" />
+                    </h:column>
+                </h:dataTable>
+
+                <div class="col-md-6">
+                    <div class="Sumario">
+                        <h3>Sumário</h3>
+                        <hr class="divider linha"></hr>
+                        <h4>Subtotal: <span>R$ <h:outputText id="valorSubTotal" value="#{carrinhoBean.carrinho.valorParcial}" /></span></h4>
+                        <h4>Frete: <span>R$ <h:outputText id="valorFrete" value="#{carrinhoBean.carrinho.enderecoEntrega.valorEntrega}" /></span></h4>
+                        <hr class="divider linha"></hr>
+                        <h4>Total: <span>R$ <h:outputText id="valorTotal" value="#{carrinhoBean.carrinho.valorTotal}" /></span></h4>
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Finalizar compra</a></p>
+
+                    </div>
+                </div>
+            </h:form>
+        </div>
+        
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Bootstrap JS-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+
+    <script src="../js/owl.carousel.min.js"></script>
+    <script src="../js/jquery.sticky.js"></script>
+
+    <!-- jQuery easing -->
+    <script src="../js/jquery.easing.1.3.min.js"></script>
+    <!-- Main Script -->
+    <script src="../js/JSPrincipal.js"></script>    
+        
+    </h:body>
+</html>
+

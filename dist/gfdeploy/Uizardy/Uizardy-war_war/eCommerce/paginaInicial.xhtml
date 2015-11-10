@@ -103,7 +103,7 @@
                                         <p:graphicImage value="#{produtos.caminhoImagem}"/>
                                         <div class="product-hover">
                                             <h:form>
-                                                <p:commandLink class="add-to-cart-link"   ><i class="fa fa-shopping-cart"></i> Adicionar ao Carrinho</p:commandLink>
+                                                <p:commandLink class="add-to-cart-link" action="#{carrinhoBean.addListaProduto(produtoBean.produto.idProduto)}" ><i class="fa fa-shopping-cart"></i> Adicionar ao Carrinho</p:commandLink>
                                                 <!--<h:link class="view-details-link" outcome="detalheDeProduto" value="#{produtoBean.setProduto(produtos)}"><i class="fa fa-link"></i> Mais Detalhe </h:link>-->
                                                 <p:commandLink class="view-details-link" action="#{produtoBean.setProdutoPaginaDetalhes(produtos)}"><i class="fa fa-link"></i> Mais Detalhe </p:commandLink>
                                             </h:form>
