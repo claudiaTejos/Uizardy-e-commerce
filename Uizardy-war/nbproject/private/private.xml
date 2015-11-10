@@ -11,6 +11,10 @@
             <file>file:/C:/Users/blanc/Documents/GitHub/Uizardy-e-commerce/Uizardy-war/web/eCommerce/paginaInicial.xhtml</file>
             <file>file:/C:/Users/blanc/Documents/GitHub/Uizardy-e-commerce/Uizardy-war/web/eCommerce/carrinhoDeCompra.xhtml</file>
             <file>file:/C:/Users/blanc/Documents/GitHub/Uizardy-e-commerce/Uizardy-war/src/java/sp/senac/br/uizardy/converter/FornecedorConverter.java</file>
+            <file>file:/C:/Users/Joana/Documents/GitHub/Uizardy-e-commerce/Uizardy-war/web/backoffice/header.xhtml</file>
+            <file>file:/C:/Users/Joana/Documents/GitHub/Uizardy-e-commerce/Uizardy-war/web/WEB-INF/faces-config.xml</file>
+            <file>file:/C:/Users/Joana/Documents/GitHub/Uizardy-e-commerce/Uizardy-war/src/java/sp/senac/br/uizardy/bean/UsuarioBean.java</file>
+            <file>file:/C:/Users/Joana/Documents/GitHub/Uizardy-e-commerce/Uizardy-war/src/java/sp/senac/br/uizardy/listener/AutorizacaoListener.java</file>
         </group>
     </open-files>
 </project-private>

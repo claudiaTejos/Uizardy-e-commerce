@@ -60,7 +60,7 @@ public class ProdutoBean {
     }
 
     public ProdutoBean() {
-        //this.produto = new Produto();
+        this.produto = new Produto();
     }
 
     public Produto getProduto() {
@@ -83,6 +83,7 @@ public class ProdutoBean {
         this.produto.setFornecedor(fornecedor);
         this.produto.setIdioma(idioma);
         produtoEJB.cadastrar(this.produto);
+        this.produto = null;
     }
     
     //lista todos os produtos
@@ -126,12 +127,8 @@ public class ProdutoBean {
         this.buscaProduto = buscaProduto;
     }
     
-    public void limparCadastro(){
-        this.produto = null;
-        
-        
-    }
-    
+
+ 
     
     
 }
