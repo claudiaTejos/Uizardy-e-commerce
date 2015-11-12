@@ -4,26 +4,45 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Uizardy BackOffice</title>
+        
+        
+        <!-- Bootstrap CSS -->
+        <link href="../css/bootstrap.min.css" rel="stylesheet" />
+        
+        <!-- Login CSS -->
+        <link href="../css/login.css" rel="stylesheet" />
     </h:head>
     <h:body>
+        
         <div>
             <p:messages autoUpdate="true"  />
-            <h:form prependId="false" id="formLogin">
-                <div>
-                    <h:outputLabel value="Usuario" for="txtUsuario" />
-                    <h:inputText value="#{usuarioBean.cpfUsuario}" id="txtUsuario" />
+            <div class="container">
+                <div class="row" id="pwd-container">
+                  <div class="col-md-4"></div>
+                  <div class="col-md-4">
+                    <section class="login-form">
+                        <h:form prependId="false" id="formLogin" role="login">
+                            <h2>Uizardy</h2>
+                        <!--<img src="http://i.imgur.com/RcmcLv4.png" class="img-responsive" alt="" />-->
+                            <h:outputLabel value="Usuario" for="txtUsuario" class="label" />
+                            <h:inputText value="#{usuarioBean.cpfUsuario}" id="txtUsuario" class="form-control input-lg"/>
+                            
+                            <h:outputLabel value="Senha" for="txtSenha" class="label"/>
+                            <h:inputSecret value="#{usuarioBean.senhaUsuario}" id="txtSenha" class="form-control input-lg"/>
+
+                            <div class="pwstrength_viewport_progress"></div>
+
+                            <h:commandButton action="#{usuarioBean.autenticar()}" value="Login"  class="btn btn-lg btn-primary btn-block"/>
+                            <h:commandLink action="#{usuarioBean.novaSenha()}" value="Esqueci minha senha" />
+                        </h:form>
+                    </section>  
+                    </div>
+                    <div class="col-md-4"></div>
                 </div>
-                <div>
-                    <h:outputLabel value="Senha" for="txtSenha" />
-                    <h:inputSecret value="#{usuarioBean.senhaUsuario}" id="txtSenha" />
-                </div>
-                <div>
-                    <h:commandButton action="#{usuarioBean.autenticar()}" value="Ok" />
-                    <h:commandLink action="#{usuarioBean.novaSenha()}" value="Esqueci minha senha" />
-                </div>
-            </h:form>
-        </div>
+            </div>
+
+            </div>
     </h:body>
 </html>
 
