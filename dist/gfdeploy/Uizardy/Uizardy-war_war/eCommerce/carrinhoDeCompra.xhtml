@@ -4,7 +4,8 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
     <h:head>
         <title>Uizardy E-Commerce</title>
 
@@ -53,6 +54,7 @@
                         <f:facet name="header">Quantidade</f:facet>
                         <p:spinner value="#{itensCompra.quantidadeProduto}" min="1" max="#{itensCompra.produto.qntProduto}">
                             <p:ajax update="valorParcialProduto" process="@this" />
+                            
                         </p:spinner>
                     </h:column>
 
@@ -62,20 +64,31 @@
                     </h:column>
                 </h:dataTable>
 
-                <div class="col-md-6">
-                    <div class="Sumario">
-                        <h3>Sumário</h3>
-                        <hr class="divider linha"></hr>
-                        <h4>Subtotal: <span>R$ <h:outputText id="valorSubTotal" value="#{carrinhoBean.carrinho.valorParcial}" /></span></h4>
-                        <h4>Frete: <span>R$ <h:outputText id="valorFrete" value="#{carrinhoBean.carrinho.enderecoEntrega.valorEntrega}" /></span></h4>
-                        <hr class="divider linha"></hr>
-                        <h4>Total: <span>R$ <h:outputText id="valorTotal" value="#{carrinhoBean.carrinho.valorTotal}" /></span></h4>
-                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Finalizar compra</a></p>
-
-                    </div>
+                <div>
+                    <div class="col-md-6">
+                            <div class="CEP" >
+                                <h3>Opções de Entrega</h3>
+                                <h3>CEP:</h3>
+                                <h:inputText value="" pt:placeholder="Insira o CEP"/>
+                                <h:commandButton value="Ok">
+                                    <p:ajax update="sumario" process="@this" />
+                                </h:commandButton>
+                            </div>
+                    </div><!-- fim do cep -->
+                    <div class="col-md-6">
+                        <div class="Sumario" id="sumario">
+                            <h3>Sumário</h3>
+                            <hr class="divider linha"></hr>
+                            <h4>Subtotal: <span>R$ <h:outputText id="valorSubTotal" value="#{carrinhoBean.carrinho.valorParcial}" /></span></h4>
+                            <h4>Frete: <span>R$ <h:outputText id="valorFrete" value="#{carrinhoBean.carrinho.enderecoEntrega.valorEntrega}" /></span></h4>
+                            <hr class="divider linha"></hr>
+                            <h4>Total: <span>R$ <h:outputText id="valorTotal" value="#{carrinhoBean.carrinho.valorTotal}" /></span></h4>
+                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Finalizar compra</a></p>
+                        </div>
+                    </div><!-- fim do sumario -->
                 </div>
             </h:form>
-        </div>
+        </div><!-- fim do container -->
         
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
