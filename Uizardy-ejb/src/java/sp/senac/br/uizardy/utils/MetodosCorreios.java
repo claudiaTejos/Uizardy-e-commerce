@@ -19,7 +19,7 @@ import org.tempuri.CResultado;
 public class MetodosCorreios {
     //busca o endereco com base em um cep, parametro é uma string e deve ser passado somentes os numeros do cep, ex: "04696000"
     //retorna um objeto do tipo EnderecoERP
-    private static EnderecoERP consultaCEP(java.lang.String cep) throws SQLException_Exception, SigepClienteException {
+    public static EnderecoERP consultaCEP(java.lang.String cep) throws SQLException_Exception, SigepClienteException {
         br.com.correios.bsb.sigep.master.bean.cliente.AtendeClienteService service = new br.com.correios.bsb.sigep.master.bean.cliente.AtendeClienteService();
         br.com.correios.bsb.sigep.master.bean.cliente.AtendeCliente port = service.getAtendeClientePort();
         return port.consultaCEP(cep);

@@ -5,6 +5,8 @@
  */
 package sp.senac.br.beans;
 
+import br.com.correios.bsb.sigep.master.bean.cliente.SQLException_Exception;
+import br.com.correios.bsb.sigep.master.bean.cliente.SigepClienteException;
 import java.util.List;
 import javax.ejb.Local;
 import sp.senac.br.uizardy.commons.EnderecoEntrega;
@@ -18,6 +20,6 @@ public interface EnderecoEntregaEJBLocal {
     public void cadastrar(EnderecoEntrega endereco);
     public void alterar(EnderecoEntrega endereco);
     public List<EnderecoEntrega> pesquisar();
-    public EnderecoEntrega pesquisar (int id);
-    public String buscaValorEntrega(String cep);
+    public EnderecoEntrega pesquisar(int id);
+    public EnderecoEntrega pesquisar(String cep) throws SQLException_Exception, SigepClienteException;
 }

@@ -5,6 +5,8 @@
  */
 package sp.senac.br.uizardy.bean;
 
+import br.com.correios.bsb.sigep.master.bean.cliente.SQLException_Exception;
+import br.com.correios.bsb.sigep.master.bean.cliente.SigepClienteException;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -15,7 +17,6 @@ import sp.senac.br.beans.ProdutoEJBLocal;
 import sp.senac.br.uizardy.commons.Carrinho;
 import sp.senac.br.uizardy.commons.EnderecoEntrega;
 import sp.senac.br.uizardy.commons.ItemDeCompra;
-import sp.senac.br.uizardy.utils.Mensagem;
 
 /**
  *
@@ -76,7 +77,6 @@ public class CarrinhoBean {
     public CarrinhoBean() {
         this.carrinho = new Carrinho();
         EnderecoEntrega end = new EnderecoEntrega();
-        end.setValorEntrega(0);
         this.carrinho.setEnderecoEntrega(end);
         double valorParcial = this.carrinho.getValorParcial();
         double valorTotal = valorParcial + end.getValorEntrega();
@@ -84,15 +84,10 @@ public class CarrinhoBean {
     }
     
     @EJB
-    EnderecoEntregaEJBLocal end;
+    EnderecoEntregaEJBLocal endEJB;
     
-    public void alteraCepEntrega(){
-        try {
-            double novoValor = Double.parseDouble(this.end.buscaValorEntrega(this.cep).replace(",", "."));
-            this.carrinho.getEnderecoEntrega().setValorEntrega(novoValor);
-        } catch (Exception e) {
-            Mensagem.mensagemErro(Mensagem.ERRO_GENERICO);
-        }
+    public void alteraCepEntrega() throws SQLException_Exception, SigepClienteException{
+        this.carrinho.setEnderecoEntrega(endEJB.pesquisar(this.cep));
     }
     
 }

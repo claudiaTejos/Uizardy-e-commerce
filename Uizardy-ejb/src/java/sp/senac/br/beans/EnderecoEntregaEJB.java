@@ -5,6 +5,9 @@
  */
 package sp.senac.br.beans;
 
+import br.com.correios.bsb.sigep.master.bean.cliente.EnderecoERP;
+import br.com.correios.bsb.sigep.master.bean.cliente.SQLException_Exception;
+import br.com.correios.bsb.sigep.master.bean.cliente.SigepClienteException;
 import java.math.BigDecimal;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -50,15 +53,20 @@ public class EnderecoEntregaEJB implements EnderecoEntregaEJBLocal {
         return em.find(EnderecoEntrega.class, id);
     }
     
-    public String buscaValorEntrega(String cep){
+    public EnderecoEntrega pesquisar(String cep) throws SQLException_Exception, SigepClienteException{
+        EnderecoEntrega endEntrega = new EnderecoEntrega();
         BigDecimal comprimento = new BigDecimal("21");
         BigDecimal altura = new BigDecimal("15");
         BigDecimal largura = new BigDecimal("5");
         BigDecimal diametro = new BigDecimal("5");
         org.tempuri.CResultado resultadoPreco = MetodosCorreios.calcPrecoPrazo(null, null, "40010", "04696000", cep, "1", 2, comprimento, altura, largura, diametro, "N", BigDecimal.ZERO, "N");
         List<org.tempuri.CServico> listaPreco = resultadoPreco.getServicos().getCServico();
-        String valor = listaPreco.get(0).getValor();
-        return valor;
+        endEntrega.setValorEntrega(Double.parseDouble(listaPreco.get(0).getValor().replace(",", ".")));
+        endEntrega.setCep(cep);
+        EnderecoERP endereco = MetodosCorreios.consultaCEP(cep);
+        endEntrega.setEndereco(endereco.getEnd());
+        endEntrega.setCidade(endereco.getCidade());
+        endEntrega.setEstado(endereco.getUf());
+        return endEntrega;
     }
-    
 }

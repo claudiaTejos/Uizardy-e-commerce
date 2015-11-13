@@ -23,8 +23,37 @@ public class EnderecoEntrega implements Serializable {
     private int idEnderecoEntrega;
     
     private String cep;
-    
+    private String estado;
+    private String cidade;
+    private String bairro;
+    private String endereco;
+    private String numero;
+    private String complemento;
     private double valorEntrega;
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
 
     public double getValorEntrega() {
         return valorEntrega;
@@ -50,12 +79,42 @@ public class EnderecoEntrega implements Serializable {
         this.cep = cep;
     }
 
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public String getComplemento() {
+        return complemento;
+    }
+
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 43 * hash + this.idEnderecoEntrega;
-        hash = 43 * hash + Objects.hashCode(this.cep);
-        hash = 43 * hash + (int) (Double.doubleToLongBits(this.valorEntrega) ^ (Double.doubleToLongBits(this.valorEntrega) >>> 32));
+        int hash = 5;
+        hash = 41 * hash + this.idEnderecoEntrega;
+        hash = 41 * hash + Objects.hashCode(this.cep);
+        hash = 41 * hash + Objects.hashCode(this.estado);
+        hash = 41 * hash + Objects.hashCode(this.cidade);
+        hash = 41 * hash + Objects.hashCode(this.bairro);
+        hash = 41 * hash + Objects.hashCode(this.endereco);
+        hash = 41 * hash + Objects.hashCode(this.numero);
+        hash = 41 * hash + Objects.hashCode(this.complemento);
+        hash = 41 * hash + (int) (Double.doubleToLongBits(this.valorEntrega) ^ (Double.doubleToLongBits(this.valorEntrega) >>> 32));
         return hash;
     }
 
@@ -74,6 +133,24 @@ public class EnderecoEntrega implements Serializable {
         if (!Objects.equals(this.cep, other.cep)) {
             return false;
         }
+        if (!Objects.equals(this.estado, other.estado)) {
+            return false;
+        }
+        if (!Objects.equals(this.cidade, other.cidade)) {
+            return false;
+        }
+        if (!Objects.equals(this.bairro, other.bairro)) {
+            return false;
+        }
+        if (!Objects.equals(this.endereco, other.endereco)) {
+            return false;
+        }
+        if (!Objects.equals(this.numero, other.numero)) {
+            return false;
+        }
+        if (!Objects.equals(this.complemento, other.complemento)) {
+            return false;
+        }
         if (Double.doubleToLongBits(this.valorEntrega) != Double.doubleToLongBits(other.valorEntrega)) {
             return false;
         }
@@ -82,7 +159,7 @@ public class EnderecoEntrega implements Serializable {
 
     @Override
     public String toString() {
-        return "EnderecoEntrega{" + "idEnderecoEntrega=" + idEnderecoEntrega + ", cep=" + cep + ", valorEntrega=" + valorEntrega + '}';
+        return "EnderecoEntrega{" + "idEnderecoEntrega=" + idEnderecoEntrega + ", cep=" + cep + ", estado=" + estado + ", cidade=" + cidade + ", bairro=" + bairro + ", endereco=" + endereco + ", numero=" + numero + ", complemento=" + complemento + ", valorEntrega=" + valorEntrega + '}';
     }
-   
+
 }
