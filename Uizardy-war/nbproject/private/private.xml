@@ -3,18 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/blanc/Documents/GitHub/Uizardy-e-commerce/Uizardy-war/web/backoffice/fornecedor.xhtml</file>
-            <file>file:/C:/Users/blanc/Documents/GitHub/Uizardy-e-commerce/Uizardy-war/src/java/sp/senac/br/uizardy/bean/FornecedorBean.java</file>
-            <file>file:/C:/Users/blanc/Documents/GitHub/Uizardy-e-commerce/Uizardy-war/web/eCommerce/listagemDeProduto.xhtml</file>
-            <file>file:/C:/Users/blanc/Documents/GitHub/Uizardy-e-commerce/Uizardy-war/web/carrinhoDeCompras.html</file>
-            <file>file:/C:/Users/blanc/Documents/GitHub/Uizardy-e-commerce/Uizardy-war/src/java/sp/senac/br/uizardy/bean/CarrinhoBean.java</file>
-            <file>file:/C:/Users/blanc/Documents/GitHub/Uizardy-e-commerce/Uizardy-war/web/eCommerce/paginaInicial.xhtml</file>
-            <file>file:/C:/Users/blanc/Documents/GitHub/Uizardy-e-commerce/Uizardy-war/web/eCommerce/carrinhoDeCompra.xhtml</file>
-            <file>file:/C:/Users/blanc/Documents/GitHub/Uizardy-e-commerce/Uizardy-war/src/java/sp/senac/br/uizardy/converter/FornecedorConverter.java</file>
-            <file>file:/C:/Users/Joana/Documents/GitHub/Uizardy-e-commerce/Uizardy-war/web/backoffice/header.xhtml</file>
-            <file>file:/C:/Users/Joana/Documents/GitHub/Uizardy-e-commerce/Uizardy-war/web/WEB-INF/faces-config.xml</file>
-            <file>file:/C:/Users/Joana/Documents/GitHub/Uizardy-e-commerce/Uizardy-war/src/java/sp/senac/br/uizardy/bean/UsuarioBean.java</file>
-            <file>file:/C:/Users/Joana/Documents/GitHub/Uizardy-e-commerce/Uizardy-war/src/java/sp/senac/br/uizardy/listener/AutorizacaoListener.java</file>
+            <file>file:/Users/claudiargtejos/Desktop/Uizardy-e-commerce/Uizardy-war/web/eCommerce/carrinhoDeCompra.xhtml</file>
+            <file>file:/Users/claudiargtejos/Desktop/Uizardy-e-commerce/Uizardy-war/web/DetalheDeProduto.html</file>
         </group>
     </open-files>
 </project-private>
