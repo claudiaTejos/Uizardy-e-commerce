@@ -52,9 +52,8 @@
 
                     <h:column>
                         <f:facet name="header">Quantidade</f:facet>
-                        <p:spinner value="#{itensCompra.quantidadeProduto}" min="1" max="#{itensCompra.produto.qntProduto}">
-                            <p:ajax update="valorParcialProduto" process="@this" />
-                            
+                        <p:spinner value="#{itensCompra.quantidadeProduto}" min="1" max="#{itensCompra.produto.qntProduto}" size="3">
+                            <p:ajax update="valorParcialProduto,:valorSubTotal,:valorTotal" process="@this" />
                         </p:spinner>
                     </h:column>
 
@@ -63,31 +62,29 @@
                         R$ <h:outputText id="valorParcialProduto" value="#{itensCompra.valorParcial}" />
                     </h:column>
                 </h:dataTable>
-
-                <div>
-                    <div class="col-md-6">
-                            <div class="CEP" >
-                                <h3>Opções de Entrega</h3>
-                                <h3>CEP:</h3>
-                                <h:inputText value="" pt:placeholder="Insira o CEP"/>
-                                <h:commandButton value="Ok">
-                                    <p:ajax update="sumario" process="@this" />
-                                </h:commandButton>
-                            </div>
-                    </div><!-- fim do cep -->
-                    <div class="col-md-6">
-                        <div class="Sumario" id="sumario">
-                            <h3>Sumário</h3>
-                            <hr class="divider linha"></hr>
-                            <h4>Subtotal: <span>R$ <h:outputText id="valorSubTotal" value="#{carrinhoBean.carrinho.valorParcial}" /></span></h4>
-                            <h4>Frete: <span>R$ <h:outputText id="valorFrete" value="#{carrinhoBean.carrinho.enderecoEntrega.valorEntrega}" /></span></h4>
-                            <hr class="divider linha"></hr>
-                            <h4>Total: <span>R$ <h:outputText id="valorTotal" value="#{carrinhoBean.carrinho.valorTotal}" /></span></h4>
-                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Finalizar compra</a></p>
-                        </div>
-                    </div><!-- fim do sumario -->
-                </div>
             </h:form>
+            
+                <div class="col-md-6">
+                        <div class="CEP" >
+                            <h3>Opções de Entrega</h3>
+                            <h3>CEP:</h3>
+                            <h:form>
+                                <h:inputText value="#{carrinhoBean.cep}" pt:placeholder="Insira o CEP" />
+                                <h:commandButton value="Ok" action="#{carrinhoBean.alteraCepEntrega()}" />
+                            </h:form>
+                        </div>
+                </div><!-- fim do cep -->
+                <div class="col-md-6">
+                    <div class="Sumario" id="sumario">
+                        <h3>Sumário</h3>
+                        <hr class="divider linha"></hr>
+                        <h4>Subtotal: <span>R$ <h:outputText id="valorSubTotal" value="#{carrinhoBean.carrinho.valorParcial}" /></span></h4>
+                        <h4>Frete: <span>R$ <h:outputText id="valorFrete" value="#{carrinhoBean.carrinho.enderecoEntrega.valorEntrega}" /></span></h4>
+                        <hr class="divider linha"></hr>
+                        <h4>Total: <span>R$ <h:outputText id="valorTotal" value="#{carrinhoBean.carrinho.valorTotal}" /></span></h4>
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Finalizar compra</a></p>
+                    </div>
+                </div><!-- fim do sumario -->
         </div><!-- fim do container -->
         
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -106,4 +103,3 @@
         
     </h:body>
 </html>
-

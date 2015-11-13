@@ -40,11 +40,13 @@ public class Carrinho implements Serializable {
     }
 
     public EnderecoEntrega getCEP() {
+        this.atualizaValorTotal();
         return enderecoEntrega;
     }
 
     public void setCEP(EnderecoEntrega CEP) {
         this.enderecoEntrega = CEP;
+        this.atualizaValorTotal();
     }
 
     public double getValorParcial() {
@@ -64,11 +66,13 @@ public class Carrinho implements Serializable {
     }
 
     public EnderecoEntrega getEnderecoEntrega() {
+        this.atualizaValorTotal();
         return enderecoEntrega;
     }
 
     public void setEnderecoEntrega(EnderecoEntrega enderecoEntrega) {
         this.enderecoEntrega = enderecoEntrega;
+        this.atualizaValorTotal();
     }
 
     public void atualizaValorTotal(){

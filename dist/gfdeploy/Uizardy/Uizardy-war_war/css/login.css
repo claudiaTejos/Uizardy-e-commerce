@@ -1,0 +1,75 @@
+@CHARSET "UTF-8";
+
+.progress-bar {
+    color: #333;
+} 
+
+/*
+Reference:
+http://www.bootstrapzen.com/item/135/simple-login-form-logo/
+*/
+
+* {
+    -webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+	outline: none;
+} 
+    /* inputs de formulario*/
+    .form-control {
+	  position: relative;
+	  font-size: 16px;
+	  height: auto;
+	  padding: 10px;
+		@include box-sizing(border-box);
+
+		&:focus {
+		  z-index: 2;
+		}
+	}
+
+body {
+	background: url(https://theprocrastinadores.files.wordpress.com/2015/09/blogagem_coletiva_1723e98b-528e-4aca-85bf-2eacf35ec75d.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+/*formulario de login  */
+.login-form {
+	margin-top: 60px;
+}
+
+/*formulario - role login  */
+form[role=login] {
+	color: #5d5d5d;
+	background: #f2f2f2;
+	padding: 26px;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+/*formulario  - imagem da empresa */
+form[role=login] h2 {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 35px;
+    text-align: center;
+}
+/*formulario - input e botao do formulario*/
+form[role=login] input, 
+form[role=login] button {
+    font-size: 18px;
+    margin: 10px 0;
+}
+/*formulario- centralizado*/
+form[role=login] > div {
+    text-align: center;
+}
+
+form[role=login] label{
+    font-size: 20px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    color: #5d5d5d;
+}
