@@ -52,15 +52,8 @@
 
                     <h:column>
                         <f:facet name="header">Quantidade</f:facet>
-<<<<<<< HEAD
-                        <p:spinner value="#{itensCompra.quantidadeProduto}" min="1" max="#{itensCompra.produto.qntProduto}">
-                            <p:ajax update="valorParcialProduto" process="@this" />
-                            <!--<p:ajax update="sumario" process="@this" />-->
-
-=======
                         <p:spinner value="#{itensCompra.quantidadeProduto}" min="1" max="#{itensCompra.produto.qntProduto}" size="3">
                             <p:ajax update="valorParcialProduto,:valorSubTotal,:valorTotal" process="@this" />
->>>>>>> origin/master
                         </p:spinner>
                     </h:column>
 
@@ -69,8 +62,7 @@
                         R$ <h:outputText id="valorParcialProduto" value="#{itensCompra.valorParcial}" />
                     </h:column>
                 </h:dataTable>
-<<<<<<< HEAD
-
+                
                 <div>
                     <div class="col-md-6">
                             <div class="CEP" >
@@ -97,8 +89,6 @@
                         
                     </div><!-- fim do sumario -->
                 </div>
-=======
->>>>>>> origin/master
             </h:form>
             
                 <div class="col-md-6">
