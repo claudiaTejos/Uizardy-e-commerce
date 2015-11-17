@@ -28,6 +28,18 @@
             <from-outcome>nao-autenticado</from-outcome>
                 <to-view-id>backoffice/login.xhtml</to-view-id>
         </navigation-case>
+        
+        <from-view-id>eCommerce/login.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>autenticadoCliente</from-outcome>
+                <to-view-id>eCommerce/paginaInicial.xhtml</to-view-id>
+        </navigation-case>
+        <from-view-id>*</from-view-id>
+        <navigation-case>
+            <from-outcome>nao-autenticadoCliente</from-outcome>
+                <to-view-id>eCommerce/login.xhtml</to-view-id>
+        </navigation-case>
+        
     </navigation-rule>
     <lifecycle>
         <phase-listener>sp.senac.br.uizardy.listener.AutorizacaoListener</phase-listener>

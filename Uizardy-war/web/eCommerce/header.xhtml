@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:body>
         <ui:composition> 
         <div class="header-area">
@@ -13,7 +14,12 @@
                         <div class="header-right">
                             <!--<p class="navbar-text navbar-right"><a href="#" class="navbar-link">Login/Cadastro</a></p>-->
                             <ul class="list-unstyled list-inline">
-                                <li><a href="#"><i class="fa fa-user"></i> Login</a></li>
+                                <li><a href="login.xhtml"><i class="fa fa-user"></i> Login</a> </li>
+                                <li><i class="fa fa-user"></i> #{usuarioClienteBean.cliente.nomeCliente}<b class="caret"></b></li>
+                                <li><h:form>
+                                    <h:commandLink action="#{usuarioClienteBean.sair()}"><i class="fa fa-fw fa-power-off"></i> Sair</h:commandLink>
+                                </h:form></li>
+                          
                             </ul>
                         </div>
                     </div>
