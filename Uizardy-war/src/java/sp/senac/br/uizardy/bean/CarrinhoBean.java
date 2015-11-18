@@ -74,6 +74,11 @@ public class CarrinhoBean {
         item.setQuantidadeProduto(1);
         this.carrinho.getItensDoCarrinho().add(item);
     }
+    
+    public void removeItemLista(ItemDeCompra item){
+        this.carrinho.getItensDoCarrinho().remove(item);
+    }
+    
     public CarrinhoBean() {
         this.carrinho = new Carrinho();
         EnderecoEntrega end = new EnderecoEntrega();

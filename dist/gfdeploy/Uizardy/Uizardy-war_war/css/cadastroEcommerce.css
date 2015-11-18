@@ -1,0 +1,27 @@
+.dadosPessoais{
+	margin-bottom: 20px;
+}
+.controle{
+	margin-top: 30px;
+}
+.controleCEP{
+	width: 220px;
+	display: inline-block;
+	margin-right: 10px;
+}
+#controleCEP{
+		text-align: center;
+
+}
+.checkbox{
+	display: block;
+}
+h2{
+	margin-left: 20px;
+}
+.finalizarCadastro{
+	width: 300px;
+	margin-left:  334px;
+	margin-bottom: 15px;
+	margin-top: 10px;
+}
