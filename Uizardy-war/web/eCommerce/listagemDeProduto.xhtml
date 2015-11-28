@@ -21,8 +21,9 @@
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
         
         <link rel="stylesheet" href="../css/TelaInicialCSS.css"/>
-        
         <link rel="stylesheet" href="../css//ListagemDeProduto.css"/>
+        <link rel="stylesheet" href="../css/footer.css"/>
+        
     </h:head>
     <h:body>
         <ui:insert name="header" >
@@ -67,7 +68,9 @@
         </div><!--Fim do maincontent-area-->
         
 
-        
+        <ui:insert name="footer" >
+            <ui:include src="footer.xhtml" />
+        </ui:insert>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <!-- Bootstrap JS-->

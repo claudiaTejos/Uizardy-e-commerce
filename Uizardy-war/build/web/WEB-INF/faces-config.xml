@@ -7,7 +7,7 @@
     
     
     <navigation-rule>
-        <from-view-id>index.html</from-view-id>
+        <from-view-id>eCommerce/paginaInicial.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>detalheDeProduto</from-outcome>
             <to-view-id>detalheDeProduto.xhtml</to-view-id>

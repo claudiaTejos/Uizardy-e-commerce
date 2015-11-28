@@ -22,6 +22,8 @@
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
         
         <link rel="stylesheet" href="../css/TelaInicialCSS.css"/>
+        <link rel="stylesheet" href="../css/footer.css"/>
+
         
         <link rel="stylesheet" href="../css//cadastroEcommerce.css"/>
     </h:head>
@@ -87,7 +89,9 @@
             </div>
         </div>
         
-        
+        <ui:insert name="footer" >
+            <ui:include src="footer.xhtml" />
+        </ui:insert>
         
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
