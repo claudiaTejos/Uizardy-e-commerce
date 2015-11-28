@@ -27,7 +27,7 @@ and open the template in the editor.
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"></link>
         
         <link rel="stylesheet" href="../css/TelaInicialCSS.css"/>
-        <link rel="stylesheet" href="../css/paginaInicial.css"/>
+        <link rel="stylesheet" href="../css/loginEcommerce.css"/>
         
         <link rel="stylesheet" href="../css/owl.carousel.css"/>
         <link rel="stylesheet" href="../css/responsive.css"/>
@@ -46,16 +46,16 @@ and open the template in the editor.
                         <p:messages autoUpdate="true"/>
                         <h:form prependId="false" id="formLogin">
                             <div class="input-group login">
-                                <h:outputLabel class="input-group-addon"><i class="fa fa-user"></i></h:outputLabel>
-                                <p:inputText value="#{usuarioClienteBean.emailUsuarioCliente}" id="txtUsuarioCliente" placeholder="E-mail"/>
+                                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user"></i></span>
+                                <p:inputText value="#{usuarioClienteBean.emailUsuarioCliente}"  class="form-control" id="txtUsuarioCliente" placeholder="E-mail"/>
                             </div>
                             <div class="input-group login">
                                 <h:outputLabel class="input-group-addon"><i class="fa fa-unlock-alt"></i></h:outputLabel>
-                                <p:password value="#{usuarioClienteBean.senhaUsuarioCliente}" id="txtSenhaCliente" placeholder="Senha"/>
+                                <p:password value="#{usuarioClienteBean.senhaUsuarioCliente}"  class="form-control"  id="txtSenhaCliente" placeholder="Senha"/>
                             </div>
                             <div>
-                                <h:commandButton action="#{usuarioClienteBean.autenticar()}" value="Ok" />
-                                <h:commandLink action="#{usuarioClienteBean.novaSenha()}" value="Esqueci minha senha" />
+                                <h:commandButton action="#{usuarioClienteBean.autenticar()}" class="btn btn-primary send" value="Ok" />
+                                <h:commandLink action="#{usuarioClienteBean.novaSenha()}"  value="Esqueci minha senha" />
                             </div>
                         </h:form>
                     </div>
@@ -70,10 +70,10 @@ and open the template in the editor.
                             <h:form prependId="false" id="formCadastro">
                                 <div class="input-group login">
                                     <h:outputLabel class="input-group-addon"><i class="fa fa-user"></i></h:outputLabel>
-                                    <p:inputText value="#{usuarioClienteBean.emailUsuarioCliente}" id="txtEmailUsuarioCliente" placeholder="E-mail"/>
+                                    <p:inputText value="#{usuarioClienteBean.emailUsuarioCliente}" class="form-control" id="txtEmailUsuarioCliente" placeholder="E-mail"/>
                                 </div>
                                 <div>
-                                <h:commandButton value="Ok" />
+                                <h:commandButton  class="btn btn-primary continue" value="OContinuar" />
                                 </div>
                             </h:form>
                         </div>
