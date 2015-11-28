@@ -65,9 +65,24 @@ public class ProdutoEJB implements ProdutoEJBLocal {
         query.setParameter("busca2", "%" + busca + "%");
         query.setParameter("busca3", "%" + busca + "%");
         List<Produto> produtos = (List<Produto>) query.getResultList();
+        return produtos;   
+    }
+
+    @Override
+    public List<Produto> pesquisarNovos() {
+        Query query = em.createQuery("Select Produto from Produto produto order by produto.idProduto desc");
+        query.setMaxResults(10);
+        List<Produto> produtos = (List<Produto>)query.getResultList();
         return produtos;
-        
-        
+    }
+
+    @Override
+    public List<Produto> pesquisarPorIdioma(String nomeIdioma) {
+        Query query = em.createQuery("Select Produto from Produto produto "
+                + "WHERE produto.idioma.nomeIdioma LIKE :busca ");
+        query.setParameter("busca",  "%" + nomeIdioma);
+        List<Produto> produtos = (List<Produto>) query.getResultList();
+        return produtos;  
     }
     
 }

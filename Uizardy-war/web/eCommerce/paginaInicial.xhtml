@@ -94,10 +94,7 @@
                     <div class="latest-product">
                         <h2 class="section-title">Novos Produtos</h2>
                         <div class="product-carousel">
-                            <ui:repeat value="#{produtoBean.pesquisar()}" var="produtos">
-                                <!--<p><h:outputLink>
-                                        <h:outputText value="#{cat.nome}" />
-                                    </h:outputLink></p>-->
+                            <ui:repeat value="#{produtoBean.pesquisarNovos()}" var="produtos">
                                 <div class="single-product">
                                     <div class="product-f-image">
                                         <p:graphicImage value="#{produtos.caminhoImagem}"/>

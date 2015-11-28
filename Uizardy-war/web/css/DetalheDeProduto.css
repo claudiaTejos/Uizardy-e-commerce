@@ -15,3 +15,6 @@ hr.linha{
     font-family: chicle;
     font-weight:normal;
 }
+.controle{
+    float: right;
+}

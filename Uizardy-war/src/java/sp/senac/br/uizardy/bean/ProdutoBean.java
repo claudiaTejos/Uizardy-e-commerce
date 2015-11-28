@@ -96,6 +96,17 @@ public class ProdutoBean {
         return produtoEJB.pesquisar(idProduto);
     }
     
+    // lista de produtos de acordo com o idioma
+    public String pesquisarIdioma(String nomeIdioma){
+        resultBusca = produtoEJB.pesquisarPorIdioma(nomeIdioma);
+        return "listagemDeProduto?faces-redirect=true";
+    }
+    
+    // lista novos produtos
+    public List<Produto> pesquisarNovos(){
+        return produtoEJB.pesquisarNovos();
+    }
+    
     //atualiza um produto
     public void atualizar(){
         Fornecedor fornecedor = fornecedorEJB.pesquisar(Integer.parseInt(idFornecedor));

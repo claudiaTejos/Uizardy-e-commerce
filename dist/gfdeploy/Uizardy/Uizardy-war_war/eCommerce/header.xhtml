@@ -39,14 +39,11 @@
                     <div class="col-xs-4">
                         <div class="search-product input-group"> 
                             <h:form>
-                                <h:inputText styleClass="form-control"  id="busca" value="#{produtoBean.buscaProduto}" />
-                                <p:commandLink styleClass="btn btn-default fa fa-search" value="" action="#{produtoBean.pesquisarProduto()}"/>
-                                
-                                <!--<input type="text" class="form-control" placeholder="Busque por..."/> <span class="input-group-btn">-->
-                                <!--<button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>-->
-                                
+                                <div class="input-group">
+                                    <p:inputText value="#{produtoBean.buscaProduto}" class="form-control" style="width: 300px;" id="busca" placeholder="Busca por..."/>
+                                    <p:commandLink class="input-group-addon" action="#{produtoBean.pesquisarProduto()}"><i class="fa fa-search"></i></p:commandLink>
+                                </div>
                             </h:form>
-                           
                         </div>
                     </div>
                         
@@ -72,10 +69,19 @@
                 </div> 
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="paginaInicial.xhtml">Home</a></li>
-                        <li><a href="#">Ingles</a></li>
+                        <li class="active"><a href="paginaInicial.xhtml" class="link">Home</a></li>
+                        <ui:repeat value="#{idiomaBean.pesquisar()}" var="idiomas">
+                            <li>
+                                <h:form>
+                                    <a class="link">
+                                        <h:commandLink action="#{produtoBean.pesquisarIdioma(idiomas.nomeIdioma)}" class="link" value="#{idiomas.nomeIdioma}"/>
+                                    </a>
+                                </h:form>
+                            </li>
+                        </ui:repeat>
+                        <!--<li><a href="#">Ingles</a></li>
                         <li><a href="#">Espanhol</a></li>
-                        <li><a href="#">Francês</a></li>
+                        <li><a href="#">Francês</a></li>-->
                         
                     </ul>
                 </div>  

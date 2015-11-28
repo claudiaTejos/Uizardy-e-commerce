@@ -23,8 +23,8 @@ margin-top: 30px;
 }
 .continue{
 	width: 100px;
-	margin-left:  334px;
 	margin-bottom: 15px;
+        float: right;
 }
 .formLogin{
 	margin-top: 80px;

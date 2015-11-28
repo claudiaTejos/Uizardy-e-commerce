@@ -7,7 +7,7 @@
 }
 
 /*Link superior */
-.header-area a {
+.header-area a{
     color: #FFFFFF;
 }
 /*Ajustar login a direita na pagina */
@@ -142,7 +142,7 @@
 }
 
 /* Cor, fonte da barra de categoria */
-.mainmenu-area ul.navbar-nav li a {
+.mainmenu-area ul.navbar-nav li a.link{
     color: #000000;
     font-size: 16px;
     font-weight: 700;
@@ -154,7 +154,7 @@
     background: #4B6DA3;
 }*/
 /*Mouse em pelo link de categoria*/
-.mainmenu-area .nav > li > a:focus {
+.mainmenu-area .nav > li > a.link:focus {
     color: #000;
 }
 /*Fim da terceira linha*/
@@ -225,7 +225,6 @@ height: 10px;
 margin: 0 0 0 5px;
 width: 10px;
 }
-
 
 
 
