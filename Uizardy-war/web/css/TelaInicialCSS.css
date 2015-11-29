@@ -83,7 +83,8 @@
 }
 /* tamanho da imagem de carrinho */
 .shopping-item i.fa {
-    margin-left: 15px;
+    margin-left: 8px;
+    margin-right: 4px;
 }
 
 /*quando o mouse está em cima do carrinho*/

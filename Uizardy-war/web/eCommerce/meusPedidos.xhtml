@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Uizardy E-Commerce</title>
+        
+         <meta charset="utf-8"/>
+        <!-- Compatiblidade com IE-->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <!-- Viewport para tamanho de acordo com o device, escala inicial 1-->
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+        
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
+        
+        <link rel="stylesheet" href="../css/TelaInicialCSS.css"/>
+        <link rel="stylesheet" href="../css//meusPedidos.css"/>
+        <link rel="stylesheet" href="../css/footer.css"/>
+        
+    </h:head>
+    <h:body>
+        <ui:insert name="header" >
+            <ui:include src="header.xhtml" />
+        </ui:insert>
+        
+        <div class="container downSpace">
+            <ui:repeat  value="" var="">
+                <div class="row">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-3">
+                        <h3>Pedido <h:outputText class="font" value="e9934734"/></h3> 
+                        <h3>Data <h:outputText class="font" value="24/09/2015"/></h3>  
+                    </div>
+                    <div class="col-lg-2 controle">
+                        <h:outputText class="font" value="2 itens"/>
+                    </div>
+                    <div class="col-lg-3 controle">
+                        <h:outputText class="font" value="R$ 24,90"/>
+                    </div>
+                    <div class="col-lg-2 controle">
+                        <h:outputText class="font" value="Status - Entregue"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <hr class="divider linha"/>
+                    </div>
+                </div>
+            
+            </ui:repeat>
+        </div>
+        
+        <ui:insert name="footer" >
+            <ui:include src="footer.xhtml" />
+        </ui:insert>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <!-- Bootstrap JS-->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        
+        
+        <script src="JS/jquery.sticky.js"></script>
+    
+        <!-- jQuery easing -->
+        <script src="JS/jquery.easing.1.3.min.js"></script>
+        <!-- Main Script -->
+        <script src="JS/JSPrincipal.js"></script>
+        
+        <!-- jQuery sticky menu 
+        <script src="js/owl.carousel.min.js"></script> -->
+    </h:body>
+</html>
+
