@@ -30,7 +30,7 @@ public class GerarBoleto {
     CompraEJBLocal compraEJB;
     
     public Boleto GeraBoleto (int idCompra){
-        Compra compra = compraEJB.pesquisar(idCompra);
+        Compra compra = compraEJB.pesquisarCompra(idCompra);
         
         // Gera as datas do boleto
         int dia, mes, ano;
