@@ -1,5 +1,8 @@
 .maincontent-area {padding-bottom: 170px}
 
+.slider-area{
+    margin-top: 50px;
+}
 .latest-product .owl-nav {
   position: absolute;
   right: 0;
