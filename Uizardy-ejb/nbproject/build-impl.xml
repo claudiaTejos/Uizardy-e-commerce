@@ -821,19 +821,31 @@ exists or setup the property manually. For example like this:
     <target if="is.jars.in.ejbjar" name="-library-inclusion-in-archive-by-user">
         <copyfiles files="${libs.PostgreSQLDriver.classpath}" todir="${build.classes.dir}"/>
         <copyfiles files="${libs.eclipselink.classpath}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.caelum-stella-boleto-2.1.2.jar}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.caelum-stella-core-2.1.2.jar}" todir="${build.classes.dir}"/>
+        <copyfiles files="${file.reference.jasperreports-5.5.0.jar}" todir="${build.classes.dir}"/>
     </target>
     <target if="is.server.weblogic" name="-library-inclusion-in-archive-weblogic">
         <basename file="${libs.PostgreSQLDriver.classpath}" property="manifest.libs.PostgreSQLDriver.classpath"/>
         <basename file="${libs.eclipselink.classpath}" property="manifest.libs.eclipselink.classpath"/>
+        <basename file="${file.reference.caelum-stella-boleto-2.1.2.jar}" property="manifest.file.reference.caelum-stella-boleto-2.1.2.jar"/>
+        <basename file="${file.reference.caelum-stella-core-2.1.2.jar}" property="manifest.file.reference.caelum-stella-core-2.1.2.jar"/>
+        <basename file="${file.reference.jasperreports-5.5.0.jar}" property="manifest.file.reference.jasperreports-5.5.0.jar"/>
         <manifest file="${build.ear.classes.dir}/META-INF/MANIFEST.MF" mode="update">
-            <attribute name="Extension-List" value="jar-1 jar-2 "/>
+            <attribute name="Extension-List" value="jar-1 jar-2 jar-3 jar-4 jar-5 "/>
             <attribute name="jar-1-Extension-Name" value="${manifest.libs.PostgreSQLDriver.classpath}"/>
             <attribute name="jar-2-Extension-Name" value="${manifest.libs.eclipselink.classpath}"/>
+            <attribute name="jar-3-Extension-Name" value="${manifest.file.reference.caelum-stella-boleto-2.1.2.jar}"/>
+            <attribute name="jar-4-Extension-Name" value="${manifest.file.reference.caelum-stella-core-2.1.2.jar}"/>
+            <attribute name="jar-5-Extension-Name" value="${manifest.file.reference.jasperreports-5.5.0.jar}"/>
         </manifest>
     </target>
     <target depends="compile" name="library-inclusion-in-manifest">
         <copyfiles files="${libs.PostgreSQLDriver.classpath}" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${libs.eclipselink.classpath}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.caelum-stella-boleto-2.1.2.jar}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.caelum-stella-core-2.1.2.jar}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.jasperreports-5.5.0.jar}" todir="${dist.ear.dir}/lib"/>
         <manifest file="${build.ear.classes.dir}/META-INF/MANIFEST.MF" mode="update"/>
     </target>
     <target name="-copy-meta-inf">

@@ -30,21 +30,21 @@
         </ui:insert>
         
         <div class="container downSpace">
-            <ui:repeat  value="" var="">
+            <ui:repeat  value="#{usuarioClienteBean.meusPedidos()}" var="pedido">
                 <div class="row">
                     <div class="col-lg-1"></div>
                     <div class="col-lg-3">
-                        <h3>Pedido <h:outputText class="font" value="e9934734"/></h3> 
-                        <h3>Data <h:outputText class="font" value="24/09/2015"/></h3>  
+                        <h3>Pedido <h:outputText class="font" value="#{pedido.idCompra}"/></h3> 
+                        <h3>Data <h:outputText class="font" value="#{pedido.dataHoraCompra}"/></h3>  
                     </div>
                     <div class="col-lg-2 controle">
                         <h:outputText class="font" value="2 itens"/>
                     </div>
                     <div class="col-lg-3 controle">
-                        <h:outputText class="font" value="R$ 24,90"/>
+                        <h:outputText class="font" value="R$ #{pedido.valorTotal}"/>
                     </div>
                     <div class="col-lg-2 controle">
-                        <h:outputText class="font" value="Status - Entregue"/>
+                        <h:outputText class="font" value="Status - #{pedido.status}"/>
                     </div>
                 </div>
                 <div class="row">

@@ -147,7 +147,7 @@
                                 
                                 <li>
                                     <h:panelGroup  rendered="#{usuarioClienteBean.cliente!=null}">
-                                        <button type="button" class="btn btn-primary next-step">Continuar</button>
+                                        <p:commandButton action="#{compraBean.novaCompra()}" styleClass="btn btn-primary next-step" value="Continuar"></p:commandButton>
                                     </h:panelGroup>
                                     <h:panelGroup  rendered="#{usuarioClienteBean.cliente==null}">
                                         <a href="login.xhtml" class="btn btn-primary">Login</a>
@@ -157,52 +157,63 @@
                         </div>
 
                         <div class="tab-pane" role="tabpanel" id="step2">
-                            <h3>Endereço de Entrega</h3>
-                            <div class="col-lg-6">
-                                <!--<ui:repeat value="" var="">
+                            <h:form>
+                                <h3>Endereço de Entrega</h3>
+                                <div class="col-lg-9">
                                     <div class="row">
                                         <div class="col-md-1">
-                                            <p:radioButton />
+                                            <!--<p:radioButton for="enderecoEntregaEscolhido" />-->
                                         </div>
-                                        <div class="col-md-5">
-                                            <h:outputText value="Endereco" />
+                                        <div class="col-md-8">
+                                            <h:outputText value="Endereco: #{usuarioClienteBean.cliente.enderecoCliente}" />
                                             <h:outputText value="Numero" />
-                                            <h:outputText value="Complemento" />
+                                            <h:outputText value="Complemento: " />
                                             <h:outputText value="Bairro, Cidade/UF" />
                                         </div>
                                     </div>
-                                </ui:repeat>-->
-                                <div class="row thumbnail">
-                                    <div class="col-md-1">
-                                        <!--<p:radioButton />-->O
-                                    </div>
-                                    <div class="col-md-5">
-                                        <div class="">
-                                            <h:outputText value="Endereco" />, <h:outputText value="Numero" />
+                                    
+                                    <h:panelGroup rendered="#{carrinhoBean.carrinho.enderecoEntrega.cep.length()>3}">
+                                        <hr class="divider linha"></hr>
+                                        <div class="row">
+                                            <div class="col-md-1">
+                                                <!--<p:radioButton for="enderecoEntregaEscolhido" />-->
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="">
+                                                    <h:outputText value="Endereco: #{carrinhoBean.carrinho.enderecoEntrega.endereco}" />
+                                                    <br/>
+                                                    <h:outputText value="Numero: " /><h:inputText value="#{carrinhoBean.carrinho.enderecoEntrega.numero}" />
+                                                    <br/>
+                                                    <h:outputText value="Complemento: " /><h:inputText value="#{carrinhoBean.carrinho.enderecoEntrega.complemento}" />
+                                                    <br/>
+                                                    <h:outputText value="#{carrinhoBean.carrinho.enderecoEntrega.bairro}, #{carrinhoBean.carrinho.enderecoEntrega.cidade}/#{carrinhoBean.carrinho.enderecoEntrega.estado}" />
+                                                    </div>
+                                            </div>
                                         </div>
-                                        <div>
-                                            <h:outputText value="Complemento" />
-                                        </div>
-                                        <h:outputText value="Bairro, Cidade/UF" />
-                                    </div>
+                                    </h:panelGroup>
                                 </div>
-                            </div>
 
-                            <ul class="list-inline pull-right">
-                                <li><button type="button" class="btn btn-default prev-step">Anterior</button></li>
-                                <li><button type="button" class="btn btn-primary next-step">Continuar</button></li>
-                            </ul>
+                                <ul class="list-inline pull-right">
+                                    <li><button type="button" class="btn btn-default prev-step">Anterior</button></li>
+                                    <li><h:commandButton styleClass="btn btn-primary next-step" action="#{carrinhoBean.cadastrar()}" value="Continuar">
+                                            <p:ajax disabled="false" />
+                                        </h:commandButton></li>
+                                </ul>
+                                <p:selectOneRadio id="enderecoEntregaEscolhido"></p:selectOneRadio>
+                            </h:form>
                         </div>
 
                         <div class="tab-pane" role="tabpanel" id="step3">
+                            <h:form>
                             <h3>Método de pagamento</h3>
                             <link href="../css/creditcardjs-v0.10.12.min.css" rel="stylesheet" />
                             <div class="col-md-4">
-                                <h:graphicImage styleClass="img-responsive" alt="Gerar Boleto" value="../img/boleto.png" />
+                                <p:commandLink action="#{compraBean.pagarComBoleto()}">
+                                    <h:graphicImage styleClass="img-responsive" alt="Gerar Boleto" value="../img/boleto.png" />
+                                </p:commandLink>
                             </div><!-- fim div boleto -->
                             <div class="col-md-2"></div>
                             <div class="col-md-6">
-                                <h:form>
                                     <div class="ccjs-card">
                                         <label class="ccjs-number">
                                             <p>Numero do cartão</p>
@@ -270,17 +281,20 @@
                                         </select>
                                     </div>
                                     <script src="../js/creditcardjs-v0.10.12.min.js"></script>
-                                </h:form>
                             </div><!-- fim div cartao -->
 
                             <ul class="list-inline pull-right">
                                 <li><button type="button" class="btn btn-default prev-step">Anterior</button></li>
-                                <li><button type="button" class="btn btn-primary btn-info-full next-step">Continuar</button></li>
+                                <li><h:commandButton styleClass="btn btn-primary next-step" action="#{compraBean.cadastrarCompra()}" value="Continuar">
+                                        <p:ajax disabled="false" update=":idCompraText,:qntItensCarrinhoHeader" />
+                                    </h:commandButton>
+                                </li>
                             </ul>
+                            </h:form>
                         </div>
 
                         <div class="tab-pane" role="tabpanel" id="complete">
-                            <h3>Pedido realizado com sucesso!</h3>
+                            <h3>Pedido #<h:outputText id="idCompraText" value="#{compraBean.compra.idCompra}" /> realizado com sucesso!</h3>
                             <p>You have successfully completed all steps.</p>
                         </div>
                         <div class="clearfix"></div>

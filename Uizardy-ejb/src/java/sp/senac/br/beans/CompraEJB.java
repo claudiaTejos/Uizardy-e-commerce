@@ -44,7 +44,15 @@ public class CompraEJB implements CompraEJBLocal {
     }
 
     @Override
-    public Compra pesquisar(int id) {
+    public List<Compra> pesquisar(int idCliente) {
+        Query query = em.createQuery("Select Compra from Compra compra Where Compra.cliente.idCliente LIKE :idCliente");
+        query.setParameter("idCliente", idCliente);
+        List<Compra> listaCompra = (List<Compra>)query.getResultList();
+        return listaCompra;
+    }
+    
+    @Override
+    public Compra pesquisarCompra(int id) {
         return em.find(Compra.class, id);
     }
     

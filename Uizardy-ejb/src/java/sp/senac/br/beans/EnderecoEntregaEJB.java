@@ -65,6 +65,7 @@ public class EnderecoEntregaEJB implements EnderecoEntregaEJBLocal {
         endEntrega.setCep(cep);
         EnderecoERP endereco = MetodosCorreios.consultaCEP(cep);
         endEntrega.setEndereco(endereco.getEnd());
+        endEntrega.setBairro(endereco.getBairro());
         endEntrega.setCidade(endereco.getCidade());
         endEntrega.setEstado(endereco.getUf());
         return endEntrega;

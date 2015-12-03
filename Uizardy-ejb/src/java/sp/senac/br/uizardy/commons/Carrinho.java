@@ -9,7 +9,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -31,8 +33,7 @@ public class Carrinho implements Serializable {
     @JoinColumn(name="idEnderecoEntrega")
     private EnderecoEntrega enderecoEntrega;
     
-    @OneToMany
-    @JoinColumn(name="idItem")
+    @OneToMany(mappedBy = "carrinhoItem", cascade = CascadeType.ALL)
     private List<ItemDeCompra> itensDoCarrinho;
 
     public Carrinho() {

@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -24,27 +25,48 @@ public class Compra implements Serializable{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int idCompra;
     
-    //@ManyToOne
-    //@JoinColumn(name="idCliente")
-    //private Cliente cliente;
+    @ManyToOne
+    @JoinColumn(name="idCliente")
+    private Cliente cliente;
     
     @OneToOne
     @JoinColumn(name="idCarrinho")
     private Carrinho carrinho;
     
-    //@OneToOne
-    //@JoinColumn(name="idPagamento");
-    //private Pagamento pagamento;
-    
-    //@ManyToOne
-    //@JoinColumn(name="idEndEntregaCliente")
-    //private EndEntregaCliente endEntregaCliente;
+    @ManyToOne
+    @JoinColumn(name="idEnderecoEntrega")
+    private EnderecoEntrega endEntregaCliente;
     
     @Temporal(value=TemporalType.TIMESTAMP)
-    private Date dataHoraCompra;
+    private Date dataHoraCompra = new Date();
     
     private double valorTotal;
+    private String tipoDePagamento;
     private String status;
+    
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public EnderecoEntrega getEndEntregaCliente() {
+        return endEntregaCliente;
+    }
+
+    public void setEndEntregaCliente(EnderecoEntrega endEntregaCliente) {
+        this.endEntregaCliente = endEntregaCliente;
+    }
+
+    public String getTipoDePagamento() {
+        return tipoDePagamento;
+    }
+
+    public void setTipoDePagamento(String tipoDePagamento) {
+        this.tipoDePagamento = tipoDePagamento;
+    }
 
     public int getIdCompra() {
         return idCompra;
@@ -64,10 +86,6 @@ public class Compra implements Serializable{
 
     public Date getDataHoraCompra() {
         return dataHoraCompra;
-    }
-
-    public void setDataHoraCompra(Date dataHoraCompra) {
-        this.dataHoraCompra = dataHoraCompra;
     }
 
     public double getValorTotal() {

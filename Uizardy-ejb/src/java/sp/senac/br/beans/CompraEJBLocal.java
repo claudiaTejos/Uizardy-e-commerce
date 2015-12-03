@@ -18,5 +18,6 @@ public interface CompraEJBLocal {
     public void cadastrar(Compra compra);
     public void alterar(Compra compra);
     public List<Compra> pesquisar();
-    public Compra pesquisar (int id);
+    public List<Compra> pesquisar(int idCliente);
+    public Compra pesquisarCompra(int id);
 }

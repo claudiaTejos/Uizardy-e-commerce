@@ -11,19 +11,22 @@ import com.sun.jersey.api.client.WebResource;
 import com.sun.jersey.api.client.filter.HTTPBasicAuthFilter;
 import com.sun.jersey.core.util.MultivaluedMapImpl;
 import java.io.Serializable;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.ws.rs.core.MediaType;
 import sp.senac.br.beans.ClienteEJBLocal;
+import sp.senac.br.beans.CompraEJBLocal;
 import sp.senac.br.uizardy.commons.Cliente;
+import sp.senac.br.uizardy.commons.Compra;
 import sp.senac.br.uizardy.utils.Mensagem;
 
 /**
  *
  * @author Joana
  */
-@ManagedBean
+@ManagedBean(name = "usuarioClienteBean")
 @SessionScoped
 public class UsuarioClienteBean implements Serializable{
 
@@ -34,6 +37,14 @@ public class UsuarioClienteBean implements Serializable{
     
     @EJB
     private ClienteEJBLocal clienteEJB;
+    
+    @EJB
+    private CompraEJBLocal compraEJB;
+    
+    public List<Compra> meusPedidos(){
+        List<Compra> listaMeusPedidos = compraEJB.pesquisar(this.cliente.getIdCliente());
+        return listaMeusPedidos;
+    }
 
     public String getEmailUsuarioCliente() {
         return emailUsuarioCliente;

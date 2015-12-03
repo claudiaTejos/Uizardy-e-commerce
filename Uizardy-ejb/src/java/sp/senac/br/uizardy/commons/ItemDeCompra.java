@@ -9,9 +9,9 @@ import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -22,15 +22,28 @@ import javax.persistence.OneToOne;
 public class ItemDeCompra implements Serializable{
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     private int idItem;
     
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name="idProduto")
     private Produto produto;
+    
+    @ManyToOne
+    @JoinColumn(name = "idCarrinho")
+    private Carrinho carrinhoItem;
     
     private int quantidadeProduto;
     
     private double valorParcial;
+
+    public Carrinho getCarrinhoItem() {
+        return carrinhoItem;
+    }
+
+    public void setCarrinhoItem(Carrinho carrinhoItem) {
+        this.carrinhoItem = carrinhoItem;
+    }
 
     public double getValorParcial() {
         return valorParcial;
