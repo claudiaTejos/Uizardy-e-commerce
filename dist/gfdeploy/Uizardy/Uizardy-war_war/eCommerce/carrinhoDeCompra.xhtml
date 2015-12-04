@@ -165,10 +165,15 @@
                                             <!--<p:radioButton for="enderecoEntregaEscolhido" />-->
                                         </div>
                                         <div class="col-md-8">
-                                            <h:outputText value="Endereco: #{usuarioClienteBean.cliente.enderecoCliente}" />
-                                            <h:outputText value="Numero" />
-                                            <h:outputText value="Complemento: " />
-                                            <h:outputText value="Bairro, Cidade/UF" />
+                                            <div class="">
+                                                <h:outputText value="Endereco: #{usuarioClienteBean.cliente.enderecoCliente.endereco}" />
+                                                <br/>
+                                                <h:outputText value="Numero: #{usuarioClienteBean.cliente.enderecoCliente.numero}" />
+                                                <br/>
+                                                <h:outputText value="Complemento: #{usuarioClienteBean.cliente.enderecoCliente.complemento}" />
+                                                <br/>
+                                                <h:outputText value="#{usuarioClienteBean.cliente.enderecoCliente.bairro}, #{usuarioClienteBean.cliente.enderecoCliente.cidade}/#{usuarioClienteBean.cliente.enderecoCliente.estado}" />
+                                            </div>
                                         </div>
                                     </div>
                                     
@@ -187,7 +192,7 @@
                                                     <h:outputText value="Complemento: " /><h:inputText value="#{carrinhoBean.carrinho.enderecoEntrega.complemento}" />
                                                     <br/>
                                                     <h:outputText value="#{carrinhoBean.carrinho.enderecoEntrega.bairro}, #{carrinhoBean.carrinho.enderecoEntrega.cidade}/#{carrinhoBean.carrinho.enderecoEntrega.estado}" />
-                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </h:panelGroup>

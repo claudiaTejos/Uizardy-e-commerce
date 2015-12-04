@@ -6,9 +6,12 @@
 package sp.senac.br.uizardy.commons;
 import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 /**
  *
  * @author Joana
@@ -23,16 +26,37 @@ public class Cliente implements Serializable{
     
     private String nomeCliente;
     private String cpfCliente;
-    private String enderecoCliente;
     private String telefoneCliente;
     private String senhaCliente;
     private String emailCliente;
+    private String nascimentoCliente;
+    private String rgCliente;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idEnderecoEntrega")
+    private EnderecoEntrega enderecoCliente;
+    
     /**
      * @return the idCliente
      */
     public int getIdCliente() {
         return idCliente;
+    }
+
+    public String getRgCliente() {
+        return rgCliente;
+    }
+
+    public void setRgCliente(String rgCliente) {
+        this.rgCliente = rgCliente;
+    }
+
+    public String getNascimentoCliente() {
+        return nascimentoCliente;
+    }
+
+    public void setNascimentoCliente(String nascimentoCliente) {
+        this.nascimentoCliente = nascimentoCliente;
     }
 
     /**
@@ -73,14 +97,14 @@ public class Cliente implements Serializable{
     /**
      * @return the enderecoCliente
      */
-    public String getEnderecoCliente() {
+    public EnderecoEntrega getEnderecoCliente() {
         return enderecoCliente;
     }
 
     /**
      * @param enderecoCliente the enderecoCliente to set
      */
-    public void setEnderecoCliente(String enderecoCliente) {
+    public void setEnderecoCliente(EnderecoEntrega enderecoCliente) {
         this.enderecoCliente = enderecoCliente;
     }
 

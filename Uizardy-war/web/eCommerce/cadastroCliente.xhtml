@@ -40,49 +40,49 @@
                         <h2>Dados Pessoais</h2>
                             <div class="col-lg-6 dadosPessoais">
                                 <h5>Nome</h5>
-                                <p:inputText value=""  class="form-control" id="txtUsuarioNome" placeholder="Nome"/>
+                                <p:inputText value="#{clienteBean.cliente.nomeCliente}"  class="form-control" id="txtUsuarioNome" placeholder="Nome"/>
                                 <h5>Email</h5>
-                                <p:inputText value=""  class="form-control" id="txtUsuarioEmail" placeholder="E-mail"/>
+                                <p:inputText value="#{clienteBean.cliente.emailCliente}"  class="form-control" id="txtUsuarioEmail" placeholder="E-mail"/>
                                 <h5>CPF</h5>
-                                <p:inputText value=""  class="form-control" id="txtUsuarioCPF" placeholder="CPF"/>
+                                <p:inputText value="#{clienteBean.cliente.cpfCliente}"  class="form-control" id="txtUsuarioCPF" placeholder="CPF"/>
                                 <h5>Data de Nascimento</h5>
                                 <!--<p:calendar id="mask"  pattern="dd-MM-yyyy" mask="true" />-->
-                                <p:inputText value=""  class="form-control"  placeholder="Data de Nascimento"/>
+                                <p:inputText value="#{clienteBean.cliente.nascimentoCliente}"  class="form-control"  placeholder="Data de Nascimento"/>
                             </div>
                             <div class="col-lg-6 ">
                                 <h5>Senha</h5>
-                                <p:password value="" class="form-control" id="txtUsuarioSenha" placeholder="Senha"/>
+                                <p:password value="#{clienteBean.cliente.senhaCliente}" class="form-control" id="txtUsuarioSenha" placeholder="Senha"/>
                                 <h5>Confirmação de Senha</h5>
-                                <p:password value="" class="form-control" id="txtUsuarioConfSenha" placeholder="Confirmacao de Senha" />                                   
+                                <p:password  class="form-control" id="txtUsuarioConfSenha" placeholder="Confirmacao de Senha" />                                   
                                 <h5>RG</h5>
-                                <p:inputText value=""  class="form-control" id="txtUsuarioRG" placeholder="RG"/>
+                                <p:inputText value="#{clienteBean.cliente.rgCliente}"  class="form-control" id="txtUsuarioRG" placeholder="RG"/>
                                 <h5>Telefone</h5>
-                                <p:inputText value=""  class="form-control" id="txtUsuarioTelefone" placeholder="Telefone"/>
+                                <p:inputText value="#{clienteBean.cliente.telefoneCliente}"  class="form-control" id="txtUsuarioTelefone" placeholder="Telefone"/>
                             </div>
                         </div>
                         <div class="col-lg-12 thumbnail">
                             <h2>Endereço</h2>
-                            <h6 id="controleCEP">CEP <p:inputText value=""  class="form-control controleCEP" id="txtUsuarioCEP" placeholder="Cidade"/><a>Não sei meu CEP</a></h6>
+                            <h6 id="controleCEP">CEP <p:inputText value="#{clienteBean.cliente.enderecoCliente.cep}"  class="form-control controleCEP" id="txtUsuarioCEP" placeholder="Cidade"/><a>Não sei meu CEP</a></h6>
                             <div class="col-lg-6 dadosPessoais">
                                 <h5>Endereço</h5>
-                                <p:inputText value=""  class="form-control" id="txtUsuarioEndereco" placeholder="Endereço"/>
+                                <p:inputText value="#{clienteBean.cliente.enderecoCliente.endereco}"  class="form-control" id="txtUsuarioEndereco" placeholder="Endereço"/>
                                 <h5>Bairro</h5>
-                                <p:inputText value=""  class="form-control" id="txtUsuarioBairro" placeholder="Bairro"/>
+                                <p:inputText value="#{clienteBean.cliente.enderecoCliente.bairro}"  class="form-control" id="txtUsuarioBairro" placeholder="Bairro"/>
                                 <h5>Cidade</h5>
-                                <p:inputText value=""  class="form-control" id="txtUsuarioCidade" placeholder="Cidade"/>
+                                <p:inputText value="#{clienteBean.cliente.enderecoCliente.cidade}"  class="form-control" id="txtUsuarioCidade" placeholder="Cidade"/>
                             </div>
                             <div class="col-lg-6">
                                 <h5>Número</h5>
-                                <p:inputText value=""  class="form-control" id="txtUsuarioNúmero" placeholder="Número"/>
+                                <p:inputText value="#{clienteBean.cliente.enderecoCliente.numero}"  class="form-control" id="txtUsuarioNúmero" placeholder="Número"/>
                                 <h5>Complemento</h5>
-                                <p:inputText value=""  class="form-control" id="txtUsuarioComplemento" placeholder="Complemento"/>
+                                <p:inputText value="#{clienteBean.cliente.enderecoCliente.complemento}"  class="form-control" id="txtUsuarioComplemento" placeholder="Complemento"/>
                                 <h5>Estado</h5>
-                                <p:inputText value=""  class="form-control" id="txtUsuarioEstado" placeholder="Estado"/>
+                                <p:inputText value="#{clienteBean.cliente.enderecoCliente.estado}"  class="form-control" id="txtUsuarioEstado" placeholder="Estado"/>
                             </div>
                         </div>
-                        <p:selectBooleanCheckbox value="" itemLabel="Aceito receber promoções em meu e-mail" class="checkbox"/>
-                        <p:selectBooleanCheckbox value="" itemLabel="Aceito os termos de Uso"/>
-                        <h:commandButton  class="btn btn-primary finalizarCadastro" value="Finalizar Cadastro" />
+                        <p:selectBooleanCheckbox  itemLabel="Aceito receber promoções em meu e-mail" class="checkbox"/>
+                        <p:selectBooleanCheckbox  itemLabel="Aceito os termos de Uso"/>
+                        <h:commandButton  class="btn btn-primary finalizarCadastro" value="Finalizar Cadastro" action="#{clienteBean.cadastrarCliente()}" />
                     </h:form>
                     
                 </div>

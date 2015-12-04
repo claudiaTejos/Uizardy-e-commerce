@@ -11,6 +11,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import sp.senac.br.beans.ClienteEJBLocal;
 import sp.senac.br.uizardy.commons.Cliente;
+import sp.senac.br.uizardy.commons.EnderecoEntrega;
 
 /**
  *
@@ -30,6 +31,8 @@ public class ClienteBean {
      */
     public ClienteBean() {
         this.cliente = new Cliente();
+        EnderecoEntrega end = new EnderecoEntrega();
+        this.cliente.setEnderecoCliente(end);
         
     }
     
