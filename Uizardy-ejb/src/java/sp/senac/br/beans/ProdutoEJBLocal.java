@@ -22,5 +22,7 @@ public interface ProdutoEJBLocal {
     public List<Produto> pesquisar(String busca);
     public List<Produto> pesquisarNovos();
     public List<Produto> pesquisarPorIdioma(String nomeIdioma);
+    public List<Produto> pesquisa(String autor);
+    public Produto pesquisaValor(String autor);
     
 }

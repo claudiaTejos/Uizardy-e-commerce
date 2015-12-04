@@ -3,9 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Elisabete/Documents/GitHub/Uizardy-e-commerce/Uizardy-war/web/eCommerce/meusPedidos.xhtml</file>
-            <file>file:/C:/Users/Elisabete/Documents/GitHub/Uizardy-e-commerce/Uizardy-war/web/css/meusPedidos.css</file>
-            <file>file:/C:/Users/Elisabete/Documents/GitHub/Uizardy-e-commerce/Uizardy-war/web/eCommerce/listagemDeProduto.xhtml</file>
+            <file>file:/C:/Users/Elisabete/Desktop/Uizardy-e-commerce/Uizardy-war/web/eCommerce/header.xhtml</file>
+            <file>file:/C:/Users/Elisabete/Desktop/Uizardy-e-commerce/Uizardy-war/web/eCommerce/paginaInicial.xhtml</file>
+            <file>file:/C:/Users/Elisabete/Desktop/Uizardy-e-commerce/Uizardy-war/web/eCommerce/listagemDeProduto.xhtml</file>
+            <file>file:/C:/Users/Elisabete/Desktop/Uizardy-e-commerce/Uizardy-war/web/eCommerce/index.xhtml</file>
+            <file>file:/C:/Users/Elisabete/Desktop/Uizardy-e-commerce/Uizardy-war/src/java/sp/senac/br/uizardy/bean/ProdutoBean.java</file>
         </group>
     </open-files>
 </project-private>

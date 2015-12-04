@@ -27,6 +27,7 @@ import sp.senac.br.uizardy.commons.Produto;
 public class ProdutoBean {
     
     private Produto produto;
+    private Produto produtoValor;
     
     @EJB
     private ProdutoEJBLocal produtoEJB;
@@ -107,6 +108,16 @@ public class ProdutoBean {
         return produtoEJB.pesquisarNovos();
     }
     
+    // resultado do banner
+    public String pesquisaBanner(String autor){
+        resultBusca = produtoEJB.pesquisa(autor);
+        return "listagemDeProduto?faces-redirect=true";
+    }
+    
+    // busca por preco mais baixo do livros
+    public void pesquisaValor(String autor){
+        produtoValor =  produtoEJB.pesquisaValor(autor);
+    }
     //atualiza um produto
     public void atualizar(){
         Fornecedor fornecedor = fornecedorEJB.pesquisar(Integer.parseInt(idFornecedor));

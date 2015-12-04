@@ -48,8 +48,8 @@
                                 <h:inputText class="form-control" required="true" id="endereco" value="#{fornecedorBean.fornecedor.endereco}" />
                             </div>
 
-                            <div class="pull-right col-lg-offset-1 col-lg-8">
-                                <p:commandButton value="Salvar" action="#{fornecedorBean.cadastrar()}" oncomplete="window.location.reload()" />
+                            <div class="pull-right col-lg-offset-1 col-lg-8 botoes">
+                                <p:commandButton value="Salvar" action="#{fornecedorBean.cadastrar()}" oncomplete="window.location.reload()" class="salvar" />
                                 <p:button value="Fechar" onclick="PF('novoFornecedorDialog').hide(); return false" />
                             </div>
                         </div><!-- fim formGroup -->

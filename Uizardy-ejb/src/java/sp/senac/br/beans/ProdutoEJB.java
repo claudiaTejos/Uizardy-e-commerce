@@ -25,6 +25,7 @@ public class ProdutoEJB implements ProdutoEJBLocal {
     @Override
     public void cadastrar(Produto produto) {
         em.persist(produto);
+        
     }
 
     @Override
@@ -83,6 +84,24 @@ public class ProdutoEJB implements ProdutoEJBLocal {
         query.setParameter("busca",  "%" + nomeIdioma);
         List<Produto> produtos = (List<Produto>) query.getResultList();
         return produtos;  
+    }
+
+    @Override
+    public List<Produto> pesquisa(String autor) {
+        Query query = em.createQuery("Select Produto from Produto produto WHERE produto.nomeAutor LIKE :busca");
+        query.setParameter("busca", autor);
+        List<Produto> produtos = (List<Produto>) query.getResultList();
+        return produtos;
+    }
+
+    @Override
+    public Produto pesquisaValor(String autor) {
+        Query query = em.createQuery("Select Produto from Produto produto WHERE produto.nomeAutor = :busca order by produto.valorProduto asc");
+        query.setParameter("busca", autor);
+        query.setMaxResults(1);
+        Produto produtos = (Produto) query.getResultList();
+        return produtos;
+        
     }
     
 }

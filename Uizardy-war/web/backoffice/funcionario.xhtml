@@ -82,9 +82,9 @@
                                 </p:selectOneRadio>
                             </div>
 
-                            <div class="pull-right col-lg-offset-1 col-lg-8">
-                                <p:commandButton value="Salvar" action="#{funcionarioBean.cadastrarFuncionario()}" oncomplete="window.location.reload()" />
-                                <p:button value="Fechar" onclick="PF('novoFuncionarioDialog').hide(); return false" />
+                            <div class="pull-right col-lg-offset-1 col-lg-8 botoes">
+                                <p:commandButton value="Salvar" action="#{funcionarioBean.cadastrarFuncionario()}" oncomplete="window.location.reload()" class="salvar"/>
+                                <p:button value="Fechar" onclick="PF('novoFuncionarioDialog').hide(); return false"  />
                             </div>
                         </div><!-- fim formGroup -->
                     </h:form>

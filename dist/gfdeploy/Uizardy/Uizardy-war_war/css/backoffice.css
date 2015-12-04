@@ -148,3 +148,11 @@ div#lateral.collapse.navbar-collapse.navbar-ex1-collapse{
     margin-bottom: 30px;
 }
 
+.botoes{
+    margin-bottom: 5px;
+    margin-top: 40px;
+}
+.salvar{
+    margin-left: 40px;
+    margin-right: 100px;
+}
