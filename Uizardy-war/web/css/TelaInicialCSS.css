@@ -241,5 +241,14 @@ margin: 0 0 0 5px;
 width: 10px;
 }
 
-
+.valorBanner1{
+    margin-left: 500px;
+    font-size: 40px;
+    color:#312783;
+}
+.valorBanner2{
+    font-size: 30px;
+    margin-top: 50px;
+    color: white;
+}
 

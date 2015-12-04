@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Uizardy E-Commerce</title>
+        
+         <meta charset="utf-8"/>
+        <!-- Compatiblidade com IE-->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <!-- Viewport para tamanho de acordo com o device, escala inicial 1-->
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+        
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
+        
+        <link rel="stylesheet" href="../css/TelaInicialCSS.css"/>
+        <link rel="stylesheet" href="../css/footer.css"/>
+
+        
+        <link rel="stylesheet" href="../css//cadastroEcommerce.css"/>
+    </h:head>
+    <h:body>
+        <ui:insert name="header" >
+            <ui:include src="header.xhtml" />
+        </ui:insert>
+        
+        <div class="controle">
+            <div class="container">
+                <div class="row">
+                    <h:form>
+                        <div class="col-lg-12 thumbnail ">
+                        <h2>Dados Pessoais</h2>
+                            <div class="col-lg-6 dadosPessoais">
+                                <h5>Nome</h5>
+                                <p:inputText value="#{clienteBean.cliente.nomeCliente}"  class="form-control" id="txtUsuarioNome" placeholder="Nome"/>
+                                <h5>Email</h5>
+                                <p:inputText value="#{clienteBean.cliente.emailCliente}"  class="form-control" id="txtUsuarioEmail" placeholder="E-mail"/>
+                                <h5>CPF</h5>
+                                <p:inputText value="#{clienteBean.cliente.cpfCliente}"  class="form-control" id="txtUsuarioCPF" placeholder="CPF"/>
+                                <h5>Data de Nascimento</h5>
+                                <!--<p:calendar id="mask"  pattern="dd-MM-yyyy" mask="true" />-->
+                                <p:inputText value="#{clienteBean.cliente.nascimentoCliente}"  class="form-control"  placeholder="Data de Nascimento"/>
+                            </div>
+                            <div class="col-lg-6 ">
+                                <h5>Senha</h5>
+                                <p:password value="#{clienteBean.cliente.senhaCliente}" class="form-control" id="txtUsuarioSenha" placeholder="Senha"/>
+                                <h5>Confirmação de Senha</h5>
+                                <p:password  class="form-control" id="txtUsuarioConfSenha" placeholder="Confirmacao de Senha" />                                   
+                                <h5>RG</h5>
+                                <p:inputText value="#{clienteBean.cliente.rgCliente}"  class="form-control" id="txtUsuarioRG" placeholder="RG"/>
+                                <h5>Telefone</h5>
+                                <p:inputText value="#{clienteBean.cliente.telefoneCliente}"  class="form-control" id="txtUsuarioTelefone" placeholder="Telefone"/>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 thumbnail">
+                            <h2>Endereço</h2>
+                            <h6 id="controleCEP">CEP <p:inputText value="#{clienteBean.cliente.enderecoCliente.cep}"  class="form-control controleCEP" id="txtUsuarioCEP" placeholder="Cidade"/><a>Não sei meu CEP</a></h6>
+                            <div class="col-lg-6 dadosPessoais">
+                                <h5>Endereço</h5>
+                                <p:inputText value="#{clienteBean.cliente.enderecoCliente.endereco}"  class="form-control" id="txtUsuarioEndereco" placeholder="Endereço"/>
+                                <h5>Bairro</h5>
+                                <p:inputText value="#{clienteBean.cliente.enderecoCliente.bairro}"  class="form-control" id="txtUsuarioBairro" placeholder="Bairro"/>
+                                <h5>Cidade</h5>
+                                <p:inputText value="#{clienteBean.cliente.enderecoCliente.cidade}"  class="form-control" id="txtUsuarioCidade" placeholder="Cidade"/>
+                            </div>
+                            <div class="col-lg-6">
+                                <h5>Número</h5>
+                                <p:inputText value="#{clienteBean.cliente.enderecoCliente.numero}"  class="form-control" id="txtUsuarioNúmero" placeholder="Número"/>
+                                <h5>Complemento</h5>
+                                <p:inputText value="#{clienteBean.cliente.enderecoCliente.complemento}"  class="form-control" id="txtUsuarioComplemento" placeholder="Complemento"/>
+                                <h5>Estado</h5>
+                                <p:inputText value="#{clienteBean.cliente.enderecoCliente.estado}"  class="form-control" id="txtUsuarioEstado" placeholder="Estado"/>
+                            </div>
+                        </div>
+                        <p:selectBooleanCheckbox  itemLabel="Aceito receber promoções em meu e-mail" class="checkbox"/>
+                        <p:selectBooleanCheckbox  itemLabel="Aceito os termos de Uso"/>
+                        <h:commandButton  class="btn btn-primary atualizarCadastro" value="Finalizar Cadastro" action="#{clienteBean.atualizarCliente()}" />
+                    </h:form>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <ui:insert name="footer" >
+            <ui:include src="footer.xhtml" />
+        </ui:insert>
+        
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <!-- Bootstrap JS-->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+        <script src="JS/jquery.sticky.js"></script>
+        
+        <!-- jQuery easing -->
+        <script src="JS/jquery.easing.1.3.min.js"></script>
+        <!-- Main Script -->
+        <script src="JS/JSPrincipal.js"></script>
+        
+        <!-- jQuery sticky menu 
+        <script src="js/owl.carousel.min.js"></script> -->
+    </h:body>
+</html>
