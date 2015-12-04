@@ -143,11 +143,25 @@
 }
 
 /* Cor, fonte da barra de categoria */
-.mainmenu-area ul.navbar-nav li a.link{
+.mainmenu-area ul.navbar-nav li a{
     color: #000000;
     font-size: 16px;
     font-weight: 700;
     padding: 10px;
+}
+.mainmenu-area ul.navbar-nav li a.link{
+    color: #000000;
+    font-size: 16px;
+    font-weight: 700;
+    padding-top: 10px;
+}
+.ajuste{
+    margin-top: 10px;
+    
+}
+.ajuste2:focus{
+    color: #000;
+    
 }
 
 /*Opção do menu selecionada
@@ -155,7 +169,7 @@
     background: #4B6DA3;
 }*/
 /*Mouse em pelo link de categoria*/
-.mainmenu-area .nav > li > a.link:focus {
+.mainmenu-area .nav > li > a:focus {
     color: #000;
 }
 /*Fim da terceira linha*/

@@ -125,3 +125,14 @@
   margin-right: 5px;
   text-decoration: none;
 }
+
+.valorBanner1{
+    margin-left: 500px;
+    font-size: 40px;
+    color: #312783;
+}
+.valorBanner2{
+    font-size: 30px;
+    margin-top: 50px;
+    color: white;
+}

@@ -69,12 +69,12 @@
                 </div> 
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="paginaInicial.xhtml" class="link">Home</a></li>
+                        <li class="active"><a href="paginaInicial.xhtml">Home</a></li>
                         <ui:repeat value="#{idiomaBean.pesquisar()}" var="idiomas">
                             <li>
-                                <h:form>
-                                    <a class="link">
-                                        <h:commandLink action="#{produtoBean.pesquisarIdioma(idiomas.nomeIdioma)}" class="link" value="#{idiomas.nomeIdioma}"/>
+                                <h:form class="link ajuste">
+                                    <a >
+                                        <h:commandLink class="ajuste2" action="#{produtoBean.pesquisarIdioma(idiomas.nomeIdioma)}" value="#{idiomas.nomeIdioma}"/>
                                     </a>
                                 </h:form>
                             </li>

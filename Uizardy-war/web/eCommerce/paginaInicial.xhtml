@@ -60,7 +60,9 @@
                         <img class="first-slide" src="../img/propaganda1.png" alt="First slide"/>
                         <div class="container">
                             <div class="carousel-caption slide-text" >
-                                <h:outputText value="R$ 20.90"  />
+                                <h:form>
+                                    <h:commandLink value="R$ 20.90" class="valorBanner1" action="#{produtoBean.pesquisaBanner('Ron')}"/>
+                                </h:form>
                             </div>
                         </div>
                     </div>
@@ -68,7 +70,9 @@
                         <img class="third-slide" src="../img/propaganda2.png" alt="Third slide" />
                         <div class="container">
                             <div class="carousel-caption  slide-text">
-                                <h:outputText value="R$ 20.90"  />
+                                <h:form>
+                                    <h:commandLink value="R$ 20.90" class="valorBanner2" action="#{produtoBean.pesquisaBanner('Collins')}"/>
+                                </h:form>
                             </div>
                         </div>
                     </div>
